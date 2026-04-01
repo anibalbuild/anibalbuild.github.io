@@ -7,16 +7,19 @@
   <meta name="description" content="Sitio oficial de anibalbuild — piano, nostalgia y emoción real." />
   <style>
     :root {
-      --bg: #090b14;
-      --bg-soft: rgba(255,255,255,0.05);
+      --bg: #070910;
+      --bg-2: #0c101b;
+      --panel: rgba(255,255,255,0.06);
+      --panel-2: rgba(255,255,255,0.04);
       --line: rgba(255,255,255,0.10);
-      --text: #f6f1e9;
-      --muted: #ddd4c7;
+      --text: #f5f1e9;
+      --muted: #cfc5b6;
       --accent: #e7c98e;
       --accent-dark: #1d150a;
-      --shadow: 0 18px 50px rgba(0,0,0,0.35);
+      --green: #1db954;
       --radius: 24px;
-      --max: 1180px;
+      --shadow: 0 18px 50px rgba(0,0,0,0.35);
+      --max: 1220px;
     }
 
     * { box-sizing: border-box; }
@@ -28,22 +31,23 @@
       color: var(--text);
       background:
         radial-gradient(circle at top right, rgba(231,201,142,0.08), transparent 24%),
-        radial-gradient(circle at top left, rgba(133,154,255,0.08), transparent 20%),
-        linear-gradient(180deg, #06070f 0%, #090b14 40%, #0c0f1b 100%);
+        radial-gradient(circle at top left, rgba(29,185,84,0.08), transparent 18%),
+        linear-gradient(180deg, #06070d 0%, #090b14 45%, #0d111c 100%);
     }
 
     a { color: inherit; text-decoration: none; }
     img { display: block; max-width: 100%; }
+    button { font: inherit; }
 
     .container {
-      width: min(92%, var(--max));
+      width: min(93%, var(--max));
       margin: 0 auto;
     }
 
     .nav {
       position: sticky;
       top: 0;
-      z-index: 50;
+      z-index: 60;
       background: rgba(7,8,16,0.78);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(255,255,255,0.06);
@@ -53,16 +57,16 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 18px 0;
       gap: 18px;
+      padding: 18px 0;
       flex-wrap: wrap;
     }
 
     .brand {
       font-size: 1.85rem;
       font-weight: 800;
-      text-transform: lowercase;
       letter-spacing: -0.04em;
+      text-transform: lowercase;
     }
 
     .nav-links {
@@ -94,15 +98,15 @@
       height: 100%;
       object-fit: cover;
       object-position: center;
-      filter: saturate(1.03) contrast(1.02);
+      filter: saturate(1.04) contrast(1.03);
     }
 
     .hero-overlay {
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(90deg, rgba(7,8,16,0.58) 0%, rgba(7,8,16,0.26) 40%, rgba(7,8,16,0.14) 100%),
-        linear-gradient(180deg, rgba(7,8,16,0.08) 0%, rgba(7,8,16,0.22) 55%, rgba(7,8,16,0.50) 100%);
+        linear-gradient(90deg, rgba(7,8,16,0.68) 0%, rgba(7,8,16,0.32) 42%, rgba(7,8,16,0.14) 100%),
+        linear-gradient(180deg, rgba(7,8,16,0.10) 0%, rgba(7,8,16,0.26) 55%, rgba(7,8,16,0.56) 100%);
     }
 
     .hero-content {
@@ -113,14 +117,16 @@
     }
 
     .hero-panel {
-      max-width: 720px;
+      max-width: 760px;
     }
 
     .eyebrow {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
       padding: 9px 15px;
       border-radius: 999px;
-      background: rgba(0,0,0,0.24);
+      background: rgba(0,0,0,0.26);
       color: #fff;
       font-size: 0.88rem;
       border: 1px solid rgba(255,255,255,0.14);
@@ -128,17 +134,25 @@
       backdrop-filter: blur(6px);
     }
 
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 18px rgba(29,185,84,0.7);
+    }
+
     .hero h1 {
-      font-size: clamp(3.4rem, 8vw, 6.6rem);
-      line-height: 0.94;
       margin: 0 0 18px;
+      font-size: clamp(3.5rem, 8vw, 6.8rem);
+      line-height: 0.94;
       letter-spacing: -0.05em;
       text-transform: lowercase;
       text-shadow: 0 4px 20px rgba(0,0,0,0.28);
     }
 
     .hero p {
-      max-width: 680px;
+      max-width: 700px;
       margin: 0 0 30px;
       color: #fff;
       font-size: clamp(1.05rem, 2vw, 1.22rem);
@@ -156,6 +170,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      gap: 10px;
       padding: 14px 22px;
       border-radius: 999px;
       font-weight: 700;
@@ -172,6 +187,12 @@
       box-shadow: 0 10px 30px rgba(231,201,142,0.22);
     }
 
+    .btn-green {
+      background: var(--green);
+      color: white;
+      box-shadow: 0 10px 30px rgba(29,185,84,0.25);
+    }
+
     .btn-secondary {
       background: rgba(0,0,0,0.22);
       border-color: rgba(255,255,255,0.16);
@@ -179,7 +200,7 @@
       backdrop-filter: blur(6px);
     }
 
-    section { padding: 86px 0; }
+    section { padding: 90px 0; }
 
     .section-head {
       margin-bottom: 30px;
@@ -214,7 +235,7 @@
     }
 
     .card {
-      background: var(--bg-soft);
+      background: var(--panel);
       border: 1px solid var(--line);
       border-radius: var(--radius);
       padding: 26px;
@@ -233,28 +254,37 @@
       line-height: 1.7;
     }
 
+    .player-shell {
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 32px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
     .player-grid {
       display: grid;
-      grid-template-columns: 1.08fr 0.92fr;
-      gap: 22px;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
       align-items: start;
     }
 
-    .video-card {
-      padding: 18px;
+    .player-left,
+    .player-right {
+      min-width: 0;
     }
 
-    .video-wrap {
+    .player-cover {
       position: relative;
       width: 100%;
       padding-top: 56.25%;
-      border-radius: 20px;
       overflow: hidden;
+      border-radius: 24px;
       background: #000;
       border: 1px solid rgba(255,255,255,0.08);
     }
 
-    .video-wrap iframe {
+    .player-cover iframe {
       position: absolute;
       inset: 0;
       width: 100%;
@@ -262,16 +292,78 @@
       border: 0;
     }
 
-    .now-playing {
-      margin-top: 16px;
+    .player-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      padding: 18px 6px 4px;
+      flex-wrap: wrap;
+    }
+
+    .now-playing-label {
+      font-size: 0.78rem;
       color: var(--muted);
-      font-size: 0.96rem;
-      line-height: 1.6;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-bottom: 8px;
+    }
+
+    .now-playing-title {
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+
+    .now-playing-sub {
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 1.55;
+    }
+
+    .player-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .spotify-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(29,185,84,0.12);
+      color: white;
+      border: 1px solid rgba(29,185,84,0.35);
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .chip-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--green);
+    }
+
+    .queue-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      margin: 6px 0 14px;
+    }
+
+    .queue-sub {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-bottom: 14px;
+      line-height: 1.55;
     }
 
     .track-list {
       display: grid;
-      gap: 12px;
+      gap: 10px;
       max-height: 760px;
       overflow: auto;
       padding-right: 4px;
@@ -280,13 +372,14 @@
     .track-btn {
       width: 100%;
       border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.04);
+      background: var(--panel-2);
       color: var(--text);
       border-radius: 18px;
-      padding: 14px;
-      display: flex;
+      padding: 12px;
+      display: grid;
+      grid-template-columns: 42px 76px 1fr auto;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
       text-align: left;
       cursor: pointer;
       transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
@@ -299,16 +392,22 @@
     }
 
     .track-btn.active {
-      border-color: rgba(231,201,142,0.45);
-      background: rgba(231,201,142,0.10);
+      border-color: rgba(29,185,84,0.40);
+      background: rgba(29,185,84,0.10);
+    }
+
+    .track-index {
+      font-size: 0.9rem;
+      color: var(--muted);
+      text-align: center;
     }
 
     .track-thumb {
-      width: 88px;
-      height: 50px;
+      width: 76px;
+      height: 44px;
       object-fit: cover;
       border-radius: 12px;
-      flex: 0 0 88px;
+      border: 1px solid rgba(255,255,255,0.06);
     }
 
     .track-meta {
@@ -317,63 +416,76 @@
 
     .track-meta strong {
       display: block;
-      font-size: 1rem;
+      font-size: 0.98rem;
       margin-bottom: 4px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .track-meta small {
       color: var(--muted);
       display: block;
       line-height: 1.45;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
-    .releases {
+    .track-play {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      place-items: center;
+      background: rgba(255,255,255,0.08);
+      color: white;
+      font-size: 0.95rem;
+    }
+
+    .highlights {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
       gap: 18px;
     }
 
-    .release {
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
+    .highlight-card {
       background: rgba(255,255,255,0.04);
       border: 1px solid rgba(255,255,255,0.08);
       border-radius: 22px;
-      padding: 20px;
+      overflow: hidden;
       transition: transform 0.2s ease, border-color 0.2s ease;
     }
 
-    .release:hover {
+    .highlight-card:hover {
       transform: translateY(-4px);
       border-color: rgba(231,201,142,0.28);
     }
 
-    .release-number {
-      width: 58px;
-      height: 58px;
-      flex: 0 0 58px;
-      border-radius: 18px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, rgba(231,201,142,0.18), rgba(138,160,255,0.15));
-      color: var(--accent);
-      font-weight: 800;
+    .highlight-thumb {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      background: #111;
     }
 
-    .release h3 {
-      margin: 0 0 6px;
+    .highlight-body {
+      padding: 18px;
+    }
+
+    .highlight-body h3 {
+      margin: 0 0 8px;
       font-size: 1.08rem;
     }
 
-    .release p {
-      margin: 0 0 14px;
+    .highlight-body p {
+      margin: 0 0 12px;
       color: var(--muted);
       line-height: 1.6;
-      font-size: 0.96rem;
+      font-size: 0.95rem;
     }
 
-    .release a {
+    .highlight-body a {
       color: var(--accent);
       font-weight: 700;
       font-size: 0.95rem;
@@ -418,7 +530,7 @@
       align-items: center;
       gap: 20px;
       flex-wrap: wrap;
-      background: linear-gradient(135deg, rgba(231,201,142,0.12), rgba(130,150,255,0.08));
+      background: linear-gradient(135deg, rgba(231,201,142,0.12), rgba(29,185,84,0.08));
     }
 
     footer {
@@ -434,33 +546,32 @@
       flex-wrap: wrap;
     }
 
-    @media (max-width: 980px) {
-      .grid-2,
+    @media (max-width: 1080px) {
       .player-grid,
-      .releases,
+      .grid-2,
+      .highlights,
       .platforms {
         grid-template-columns: 1fr;
       }
     }
 
-    @media (max-width: 720px) {
+    @media (max-width: 780px) {
       .hero-overlay {
         background:
           linear-gradient(180deg, rgba(7,8,16,0.18) 0%, rgba(7,8,16,0.36) 58%, rgba(7,8,16,0.64) 100%);
       }
 
-      .hero-panel {
-        max-width: 100%;
+      .track-btn {
+        grid-template-columns: 34px 68px 1fr;
       }
 
-      .track-btn {
-        align-items: flex-start;
+      .track-play {
+        display: none;
       }
 
       .track-thumb {
-        width: 76px;
-        height: 44px;
-        flex-basis: 76px;
+        width: 68px;
+        height: 40px;
       }
     }
   </style>
@@ -472,7 +583,7 @@
       <nav class="nav-links">
         <a href="#identidad">Identidad</a>
         <a href="#reproductor">Reproductor</a>
-        <a href="#lanzamientos">Lanzamientos</a>
+        <a href="#destacados">Destacados</a>
         <a href="#plataformas">Plataformas</a>
         <a href="#contacto">Contacto</a>
       </nav>
@@ -484,15 +595,15 @@
     <div class="hero-overlay"></div>
     <div class="container hero-content">
       <div class="hero-panel">
-        <div class="eyebrow">Sitio oficial · piano · nostalgia · emoción real</div>
+        <div class="eyebrow"><span class="status-dot"></span> Sitio oficial · piano · nostalgia · emoción real</div>
         <h1>anibalbuild</h1>
         <p>
           Música que se siente antes de entenderse. Un proyecto construido desde la sensibilidad,
           el recuerdo, la balada y una estética cinematográfica íntima.
         </p>
         <div class="button-row">
-          <a class="btn btn-primary" href="#reproductor">Escuchar ahora</a>
-          <a class="btn btn-secondary" href="https://www.youtube.com/@anibalbuild/releases" target="_blank">Abrir releases</a>
+          <a class="btn btn-green" href="#reproductor">▶ Escuchar ahora</a>
+          <a class="btn btn-primary" href="https://www.youtube.com/@anibalbuild/releases" target="_blank">Abrir releases</a>
           <a class="btn btn-secondary" href="https://www.instagram.com/anibalbuild/" target="_blank">Instagram</a>
         </div>
       </div>
@@ -533,75 +644,82 @@
         <div class="kicker">Reproductor</div>
         <h2>Escucha mi música</h2>
         <p>
-          Aquí puedes reproducir tus lanzamientos directamente desde la web.
+          Una experiencia más visual, ordenada y cercana al estilo de una plataforma de streaming.
         </p>
       </div>
 
-      <div class="player-grid">
-        <div class="card video-card">
-          <div class="video-wrap">
-            <iframe
-              id="musicPlayer"
-              src="https://www.youtube.com/embed/NCbOeBV_PEI"
-              title="Reproductor anibalbuild"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen>
-            </iframe>
+      <div class="player-shell">
+        <div class="player-grid">
+          <div class="player-left">
+            <div class="player-cover">
+              <iframe
+                id="musicPlayer"
+                src="https://www.youtube-nocookie.com/embed/NCbOeBV_PEI"
+                title="Reproductor anibalbuild"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen>
+              </iframe>
+            </div>
+
+            <div class="player-meta">
+              <div>
+                <div class="now-playing-label">Now playing</div>
+                <div class="now-playing-title" id="nowPlayingTitle">El hombre andante</div>
+                <div class="now-playing-sub" id="nowPlayingSub">Track 01 · Reprodúcelo directamente desde tu web.</div>
+              </div>
+              <div class="player-actions">
+                <div class="spotify-chip"><span class="chip-dot"></span> Web player</div>
+                <a class="btn btn-secondary" id="currentTrackLink" href="https://www.youtube.com/watch?v=NCbOeBV_PEI" target="_blank">Abrir en YouTube</a>
+              </div>
+            </div>
           </div>
-          <div class="now-playing" id="nowPlaying">
-            Reproduciendo: <strong>El hombre andante</strong>
+
+          <div class="player-right">
+            <div class="queue-title">Tu catálogo</div>
+            <div class="queue-sub">Selecciona cualquier canción de la lista para cambiar el tema principal.</div>
+            <div class="track-list" id="trackList"></div>
           </div>
         </div>
-
-        <div class="track-list" id="trackList"></div>
       </div>
     </div>
   </section>
 
-  <section id="lanzamientos">
+  <section id="destacados">
     <div class="container">
       <div class="section-head">
-        <div class="kicker">Lanzamientos</div>
-        <h2>Mis releases</h2>
+        <div class="kicker">Destacados</div>
+        <h2>Lanzamientos clave</h2>
         <p>
-          Acceso directo a algunos puntos clave de tu catálogo y a tu página oficial de releases.
+          Una selección visual de temas para presentar mejor tu catálogo al estilo de una portada editorial.
         </p>
       </div>
 
-      <div class="releases">
-        <article class="release">
-          <div class="release-number">01</div>
-          <div>
+      <div class="highlights">
+        <article class="highlight-card">
+          <img class="highlight-thumb" src="https://img.youtube.com/vi/lKCHxcsPTNI/hqdefault.jpg" alt="Vilma Núñez">
+          <div class="highlight-body">
             <h3>Vilma Núñez</h3>
             <p>Uno de los temas más reconocibles dentro de tu catálogo.</p>
             <a href="https://www.youtube.com/watch?v=lKCHxcsPTNI" target="_blank">Abrir lanzamiento</a>
           </div>
         </article>
 
-        <article class="release">
-          <div class="release-number">02</div>
-          <div>
+        <article class="highlight-card">
+          <img class="highlight-thumb" src="https://img.youtube.com/vi/b_znk6Sc-Ls/hqdefault.jpg" alt="Primero de Junio">
+          <div class="highlight-body">
             <h3>Primero de Junio</h3>
             <p>Balada íntima con una sensibilidad emocional muy marcada.</p>
             <a href="https://www.youtube.com/watch?v=b_znk6Sc-Ls" target="_blank">Abrir lanzamiento</a>
           </div>
         </article>
 
-        <article class="release">
-          <div class="release-number">03</div>
-          <div>
+        <article class="highlight-card">
+          <img class="highlight-thumb" src="https://img.youtube.com/vi/VKhk3AopNsk/hqdefault.jpg" alt="Dime Que Te Quedas">
+          <div class="highlight-body">
             <h3>Dime Que Te Quedas</h3>
             <p>Otro de tus releases destacados con acceso directo desde la web.</p>
             <a href="https://www.youtube.com/watch?v=VKhk3AopNsk" target="_blank">Abrir lanzamiento</a>
-          </div>
-        </article>
-
-        <article class="release">
-          <div class="release-number">04</div>
-          <div>
-            <h3>Todos mis releases</h3>
-            <p>Abre tu página oficial de lanzamientos para recorrer tu catálogo completo.</p>
-            <a href="https://www.youtube.com/@anibalbuild/releases" target="_blank">Abrir página de releases</a>
           </div>
         </article>
       </div>
@@ -614,7 +732,7 @@
         <div class="kicker">Plataformas</div>
         <h2>Escucha y sigue el proyecto</h2>
         <p>
-          Tus plataformas reales integradas en un diseño limpio, estable y más profesional.
+          Tus plataformas reales integradas en un diseño más limpio y más cercano a una experiencia de artista profesional.
         </p>
       </div>
       <div class="platforms">
@@ -684,7 +802,9 @@
 
     const trackList = document.getElementById("trackList");
     const player = document.getElementById("musicPlayer");
-    const nowPlaying = document.getElementById("nowPlaying");
+    const nowPlayingTitle = document.getElementById("nowPlayingTitle");
+    const nowPlayingSub = document.getElementById("nowPlayingSub");
+    const currentTrackLink = document.getElementById("currentTrackLink");
 
     function renderTracks() {
       trackList.innerHTML = "";
@@ -693,16 +813,20 @@
         const button = document.createElement("button");
         button.className = "track-btn" + (index === 0 ? " active" : "");
         button.innerHTML = `
+          <div class="track-index">${String(index + 1).padStart(2, "0")}</div>
           <img class="track-thumb" src="https://img.youtube.com/vi/${track.id}/hqdefault.jpg" alt="${track.title}">
           <div class="track-meta">
             <strong>${track.title}</strong>
             <small>Track ${String(index + 1).padStart(2, "0")} · Reproducir en la web</small>
           </div>
+          <div class="track-play">▶</div>
         `;
 
         button.addEventListener("click", () => {
-          player.src = \`https://www.youtube.com/embed/\${track.id}\`;
-          nowPlaying.innerHTML = \`Reproduciendo: <strong>\${track.title}</strong>\`;
+          player.src = `https://www.youtube-nocookie.com/embed/${track.id}`;
+          nowPlayingTitle.textContent = track.title;
+          nowPlayingSub.textContent = `Track ${String(index + 1).padStart(2, "0")} · Reprodúcelo directamente desde tu web.`;
+          currentTrackLink.href = `https://www.youtube.com/watch?v=${track.id}`;
 
           document.querySelectorAll(".track-btn").forEach(btn => btn.classList.remove("active"));
           button.classList.add("active");
@@ -715,3 +839,4 @@
     renderTracks();
   </script>
 </body>
+</html>
