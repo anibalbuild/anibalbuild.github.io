@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>anibalbuild</title>
+  <meta name="description" content="Sitio oficial de anibalbuild">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0b0d18;
+      color: #f5f1ea;
+    }
+    a { color: inherit; text-decoration: none; }
+    .nav {
+      position: sticky;
+      top: 0;
+      background: rgba(10,12,20,0.92);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding: 18px 30px;
+      z-index: 10;
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .brand {
+      font-size: 30px;
+      font-weight: bold;
+      text-transform: lowercase;
+    }
+    .menu {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      color: #d1c9bc;
+    }
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(rgba(0,0,0,0.10), rgba(0,0,0,0.30));
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 60px 30px;
+    }
+    .tag {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.28);
+      color: #fff;
+      margin-bottom: 18px;
+      font-size: 14px;
+      border: 1px solid rgba(255,255,255,0.14);
+    }
+    h1 {
+      font-size: 72px;
+      margin: 0 0 16px 0;
+      line-height: 0.95;
+      text-transform: lowercase;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.35);
+    }
+    .hero p {
+      max-width: 700px;
+      color: #fff;
+      font-size: 20px;
+      line-height: 1.6;
+      margin-bottom: 28px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.35);
+    }
+    .buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-weight: bold;
+      display: inline-block;
+    }
+    .btn-primary {
+      background: #e4c48a;
+      color: #20170b;
+    }
+    .btn-secondary {
+      background: rgba(0,0,0,0.35);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.18);
+    }
+    .section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 30px;
+    }
+    .kicker {
+      color: #e4c48a;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 12px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    h2 {
+      font-size: 42px;
+      margin: 0 0 12px 0;
+    }
+    .section-desc {
+      color: #d1c9bc;
+      line-height: 1.7;
+      max-width: 760px;
+      margin-bottom: 28px;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+    .card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 24px;
+    }
+    .card h3 { margin-top: 0; margin-bottom: 10px; }
+    .card p { color: #d1c9bc; line-height: 1.7; margin: 0; }
+    .songs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    .song {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 20px;
+      display: flex;
+      gap: 14px;
+    }
+    .song-number {
+      width: 54px;
+      height: 54px;
+      min-width: 54px;
+      border-radius: 16px;
+      background: rgba(228,196,138,0.16);
+      color: #e4c48a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+    .song h3 { margin: 0 0 8px 0; font-size: 20px; }
+    .song p { margin: 0 0 12px 0; color: #d1c9bc; line-height: 1.6; }
+    .song a { color: #e4c48a; font-weight: bold; }
+    .platforms {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 18px;
+    }
+    .platform {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 22px;
+      display: block;
+    }
+    .platform strong {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+    .platform span {
+      color: #d1c9bc;
+      line-height: 1.6;
+    }
+    .contact {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 24px;
+    }
+    footer {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 28px 30px 40px 30px;
+      color: #d1c9bc;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    @media (max-width: 900px) {
+      .grid-2, .songs, .platforms { grid-template-columns: 1fr; }
+      h1 { font-size: 52px; }
+      h2 { font-size: 34px; }
+      .hero p { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="nav">
+    <div class="nav-inner">
+      <div class="brand">anibalbuild</div>
+      <div class="menu">
+        <a href="#identidad">Identidad</a>
+        <a href="#lanzamientos">Lanzamientos</a>
+        <a href="#plataformas">Plataformas</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="hero" id="inicio">
+    <img class="hero-bg" src="hero.jpg" alt="Portada anibalbuild">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="tag">Sitio oficial · piano · nostalgia · emoción real</div>
+      <h1>anibalbuild</h1>
+      <p>
+        Música que se siente antes de entenderse. Un proyecto construido desde la sensibilidad,
+        el recuerdo, la balada y una estética cinematográfica íntima.
+      </p>
+      <div class="buttons">
+        <a class="btn btn-primary" href="#lanzamientos">Ver lanzamientos</a>
+        <a class="btn btn-secondary" href="https://www.youtube.com/@anibalbuild/releases" target="_blank">Abrir releases</a>
+        <a class="btn btn-secondary" href="https://www.instagram.com/anibalbuild/" target="_blank">Instagram</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="identidad">
+    <div class="kicker">Identidad</div>
+    <h2>Una propuesta musical íntima</h2>
+    <p class="section-desc">
+      anibalbuild nace desde la necesidad de transformar emociones reales en canciones.
+      Piano, nostalgia, belleza melancólica y una conexión honesta con quien escucha.
+    </p>
+    <div class="grid-2">
+      <div class="card">
+        <h3>El sentimiento detrás del proyecto</h3>
+        <p>
+          Este espacio reúne composiciones inspiradas en el recuerdo, el amor que permanece y la emoción que no desaparece.
+          Cada tema busca transmitir cercanía, sensibilidad y profundidad.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Sonido y estética</h3>
+        <p>
+          Baladas, atmósferas suaves, instrumentales evocadores y una imagen visual cinematográfica pensada para acompañar la música.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="lanzamientos">
+    <div class="kicker">Lanzamientos</div>
+    <h2>Mis releases</h2>
+    <p class="section-desc">Aquí están tus lanzamientos destacados con acceso directo.</p>
+    <div class="songs">
+      <div class="song"><div class="song-number">01</div><div><h3>Primero de Junio</h3><p>Escúchalo directamente desde YouTube.</p><a href="https://www.youtube.com/watch?v=b_znk6Sc-Ls" target="_blank">Abrir lanzamiento</a></div></div>
+      <div class="song"><div class="song-number">02</div><div><h3>Dime Que Te Quedas</h3><p>Acceso directo a tu release.</p><a href="https://www.youtube.com/watch?v=VKhk3AopNsk" target="_blank">Abrir lanzamiento</a></div></div>
+      <div class="song"><div class="song-number">03</div><div><h3>Vilma Núñez</h3><p>Uno de los temas destacados de tu página de lanzamientos.</p><a href="https://www.youtube.com/watch?v=lKCHxcsPTNI" target="_blank">Abrir lanzamiento</a></div></div>
+      <div class="song"><div class="song-number">04</div><div><h3>Ver todos mis releases</h3><p>Abre tu página oficial de lanzamientos en YouTube.</p><a href="https://www.youtube.com/@anibalbuild/releases" target="_blank">Abrir página de releases</a></div></div>
+    </div>
+  </section>
+
+  <section class="section" id="plataformas">
+    <div class="kicker">Plataformas</div>
+    <h2>Escucha y sigue el proyecto</h2>
+    <p class="section-desc">Accesos directos a tus plataformas reales.</p>
+    <div class="platforms">
+      <a class="platform" href="https://www.youtube.com/@anibalbuild" target="_blank"><strong>YouTube</strong><span>Canal oficial con videos, lanzamientos y contenido musical.</span></a>
+      <a class="platform" href="https://open.spotify.com/user/im0hb56341foca5u6hd415g5p?si=90e39b0e484e423d" target="_blank"><strong>Spotify</strong><span>Accede a tu perfil musical.</span></a>
+      <a class="platform" href="https://www.instagram.com/anibalbuild/" target="_blank"><strong>Instagram</strong><span>Tu universo visual y artístico.</span></a>
+    </div>
+  </section>
+
+  <section class="section" id="contacto">
+    <div class="contact">
+      <div class="kicker">Contacto</div>
+      <h2>Conecta con anibalbuild</h2>
+      <p class="section-desc" style="margin-bottom:0;">Correo: <strong>lavidaeslucida@gmail.com</strong></p>
+      <div style="margin-top:18px;"><a class="btn btn-primary" href="mailto:lavidaeslucida@gmail.com">Escribir correo</a></div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 anibalbuild · Hecho con piano, nostalgia y emoción.
+  </footer>
+</body>
+</html>
