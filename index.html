@@ -3,40 +3,44 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>anibalbuild</title>
-  <meta name="description" content="Sitio oficial de anibalbuild — piano, nostalgia y emoción real." />
+  <title>anibalbuild | Artista musical</title>
+  <meta name="description" content="Sitio oficial de anibalbuild. Música romántica, nocturna y nostálgica." />
+  <meta name="theme-color" content="#0f172a" />
   <style>
     :root {
-      --bg: #090b14;
-      --bg-soft: rgba(255,255,255,0.05);
-      --line: rgba(255,255,255,0.10);
-      --text: #f6f1e9;
-      --muted: #ddd4c7;
-      --accent: #e7c98e;
-      --accent-dark: #1d150a;
-      --shadow: 0 18px 50px rgba(0,0,0,0.35);
+      --bg: #08111f;
+      --bg-soft: #0f172a;
+      --card: rgba(255,255,255,0.08);
+      --card-strong: rgba(255,255,255,0.12);
+      --text: #f8fafc;
+      --muted: #cbd5e1;
+      --line: rgba(255,255,255,0.12);
+      --accent: #a78bfa;
+      --accent-2: #f472b6;
+      --accent-3: #38bdf8;
+      --shadow: 0 20px 60px rgba(0,0,0,0.35);
       --radius: 24px;
       --max: 1180px;
     }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at top right, rgba(231,201,142,0.08), transparent 24%),
-        radial-gradient(circle at top left, rgba(133,154,255,0.08), transparent 20%),
-        linear-gradient(180deg, #06070f 0%, #090b14 40%, #0c0f1b 100%);
+        radial-gradient(circle at top left, rgba(167,139,250,0.22), transparent 28%),
+        radial-gradient(circle at top right, rgba(244,114,182,0.18), transparent 26%),
+        linear-gradient(180deg, #050b16 0%, #08111f 42%, #0a1222 100%);
+      min-height: 100vh;
     }
 
     a { color: inherit; text-decoration: none; }
-    img { display: block; max-width: 100%; }
+    img { max-width: 100%; display: block; }
 
     .container {
-      width: min(92%, var(--max));
+      width: min(calc(100% - 32px), var(--max));
       margin: 0 auto;
     }
 
@@ -44,675 +48,813 @@
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(7,8,16,0.78);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      backdrop-filter: blur(16px);
+      background: rgba(8,17,31,0.72);
+      border-bottom: 1px solid var(--line);
     }
 
     .nav-inner {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 18px 0;
-      gap: 18px;
-      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 74px;
     }
 
     .brand {
-      font-size: 1.85rem;
-      font-weight: 800;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .brand strong {
+      font-size: 1.1rem;
+      letter-spacing: 0.05em;
       text-transform: lowercase;
-      letter-spacing: -0.04em;
+    }
+
+    .brand span {
+      font-size: 0.85rem;
+      color: var(--muted);
     }
 
     .nav-links {
       display: flex;
-      gap: 18px;
+      gap: 22px;
+      align-items: center;
       flex-wrap: wrap;
     }
 
     .nav-links a {
       color: var(--muted);
-      font-size: 0.96rem;
+      font-size: 0.95rem;
+      transition: 0.2s ease;
     }
 
-    .nav-links a:hover { color: var(--text); }
-
-    .hero {
-      min-height: 100vh;
-      position: relative;
-      display: flex;
-      align-items: center;
-      overflow: hidden;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      filter: saturate(1.03) contrast(1.02);
-    }
-
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(90deg, rgba(7,8,16,0.58) 0%, rgba(7,8,16,0.26) 40%, rgba(7,8,16,0.14) 100%),
-        linear-gradient(180deg, rgba(7,8,16,0.08) 0%, rgba(7,8,16,0.22) 55%, rgba(7,8,16,0.50) 100%);
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      padding: 80px 0;
-    }
-
-    .hero-panel {
-      max-width: 720px;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      padding: 9px 15px;
-      border-radius: 999px;
-      background: rgba(0,0,0,0.24);
-      color: #fff;
-      font-size: 0.88rem;
-      border: 1px solid rgba(255,255,255,0.14);
-      margin-bottom: 20px;
-      backdrop-filter: blur(6px);
-    }
-
-    .hero h1 {
-      font-size: clamp(3.4rem, 8vw, 6.6rem);
-      line-height: 0.94;
-      margin: 0 0 18px;
-      letter-spacing: -0.05em;
-      text-transform: lowercase;
-      text-shadow: 0 4px 20px rgba(0,0,0,0.28);
-    }
-
-    .hero p {
-      max-width: 680px;
-      margin: 0 0 30px;
-      color: #fff;
-      font-size: clamp(1.05rem, 2vw, 1.22rem);
-      line-height: 1.65;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.25);
-    }
-
-    .button-row {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
+    .nav-links a:hover {
+      color: var(--text);
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 14px 22px;
-      border-radius: 999px;
-      font-weight: 700;
+      gap: 10px;
       border: 1px solid transparent;
-      transition: transform 0.2s ease, border-color 0.2s ease;
+      border-radius: 999px;
+      padding: 14px 20px;
+      font-weight: 700;
+      transition: transform 0.2s ease, opacity 0.2s ease, border-color 0.2s ease, background 0.2s ease;
       cursor: pointer;
     }
 
-    .btn:hover { transform: translateY(-2px); }
+    .btn:hover { transform: translateY(-1px); }
 
     .btn-primary {
-      background: linear-gradient(135deg, var(--accent), #f4ddb1);
-      color: var(--accent-dark);
-      box-shadow: 0 10px 30px rgba(231,201,142,0.22);
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 12px 30px rgba(167,139,250,0.25);
     }
 
     .btn-secondary {
-      background: rgba(0,0,0,0.22);
-      border-color: rgba(255,255,255,0.16);
-      color: #fff;
-      backdrop-filter: blur(6px);
-    }
-
-    section { padding: 86px 0; }
-
-    .section-head {
-      margin-bottom: 30px;
-    }
-
-    .kicker {
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      font-size: 0.78rem;
-      font-weight: 800;
-      margin-bottom: 12px;
-    }
-
-    .section-head h2 {
-      margin: 0 0 12px;
-      font-size: clamp(2rem, 4vw, 3rem);
-      line-height: 1.08;
-    }
-
-    .section-head p {
-      margin: 0;
-      color: var(--muted);
-      max-width: 760px;
-      line-height: 1.7;
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 22px;
-    }
-
-    .card {
-      background: var(--bg-soft);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 26px;
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(10px);
-    }
-
-    .card h3 {
-      margin: 0 0 10px;
-      font-size: 1.28rem;
-    }
-
-    .card p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    .player-grid {
-      display: grid;
-      grid-template-columns: 1.08fr 0.92fr;
-      gap: 22px;
-      align-items: start;
-    }
-
-    .video-card {
-      padding: 18px;
-    }
-
-    .video-wrap {
-      position: relative;
-      width: 100%;
-      padding-top: 56.25%;
-      border-radius: 20px;
-      overflow: hidden;
-      background: #000;
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .video-wrap iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-
-    .now-playing {
-      margin-top: 16px;
-      color: var(--muted);
-      font-size: 0.96rem;
-      line-height: 1.6;
-    }
-
-    .track-list {
-      display: grid;
-      gap: 12px;
-      max-height: 760px;
-      overflow: auto;
-      padding-right: 4px;
-    }
-
-    .track-btn {
-      width: 100%;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.04);
-      color: var(--text);
-      border-radius: 18px;
-      padding: 14px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      text-align: left;
-      cursor: pointer;
-      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
-    }
-
-    .track-btn:hover {
-      transform: translateY(-2px);
-      border-color: rgba(231,201,142,0.35);
-      background: rgba(255,255,255,0.06);
-    }
-
-    .track-btn.active {
-      border-color: rgba(231,201,142,0.45);
-      background: rgba(231,201,142,0.10);
-    }
-
-    .track-thumb {
-      width: 88px;
-      height: 50px;
-      object-fit: cover;
-      border-radius: 12px;
-      flex: 0 0 88px;
-    }
-
-    .track-meta {
-      min-width: 0;
-    }
-
-    .track-meta strong {
-      display: block;
-      font-size: 1rem;
-      margin-bottom: 4px;
-    }
-
-    .track-meta small {
-      color: var(--muted);
-      display: block;
-      line-height: 1.45;
-    }
-
-    .releases {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-    }
-
-    .release {
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 22px;
-      padding: 20px;
-      transition: transform 0.2s ease, border-color 0.2s ease;
-    }
-
-    .release:hover {
-      transform: translateY(-4px);
-      border-color: rgba(231,201,142,0.28);
-    }
-
-    .release-number {
-      width: 58px;
-      height: 58px;
-      flex: 0 0 58px;
-      border-radius: 18px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, rgba(231,201,142,0.18), rgba(138,160,255,0.15));
-      color: var(--accent);
-      font-weight: 800;
-    }
-
-    .release h3 {
-      margin: 0 0 6px;
-      font-size: 1.08rem;
-    }
-
-    .release p {
-      margin: 0 0 14px;
-      color: var(--muted);
-      line-height: 1.6;
-      font-size: 0.96rem;
-    }
-
-    .release a {
-      color: var(--accent);
-      font-weight: 700;
-      font-size: 0.95rem;
-    }
-
-    .platforms {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .platform {
-      display: block;
-      min-height: 170px;
-      padding: 22px;
-      border-radius: 22px;
       background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.10);
-      transition: transform 0.2s ease, border-color 0.2s ease;
+      border-color: var(--line);
+      color: var(--text);
     }
 
-    .platform:hover {
-      transform: translateY(-4px);
-      border-color: rgba(231,201,142,0.35);
+    .hero {
+      padding: 82px 0 40px;
     }
 
-    .platform strong {
-      display: block;
-      margin-bottom: 12px;
-      font-size: 1.12rem;
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 28px;
+      align-items: stretch;
     }
 
-    .platform span {
+    .hero-copy,
+    .hero-card,
+    .panel,
+    .music-card,
+    .link-card,
+    .about-card,
+    .contact-card,
+    .footer-card {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.04));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-copy {
+      padding: 34px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-copy::before {
+      content: "";
+      position: absolute;
+      inset: auto -80px -80px auto;
+      width: 230px;
+      height: 230px;
+      background: radial-gradient(circle, rgba(56,189,248,0.22), transparent 70%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--line);
+      color: #e9d5ff;
+      font-size: 0.85rem;
+      margin-bottom: 18px;
+    }
+
+    h1, h2, h3, p { margin: 0; }
+
+    h1 {
+      font-size: clamp(2.4rem, 5vw, 4.6rem);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      margin-bottom: 18px;
+    }
+
+    .hero-copy p {
+      font-size: 1.05rem;
+      line-height: 1.7;
       color: var(--muted);
-      line-height: 1.6;
-      display: block;
+      max-width: 64ch;
     }
 
-    .contact-box {
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .stat {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--line);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.2rem;
+      margin-bottom: 6px;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .hero-card {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .cover-art {
+      aspect-ratio: 1 / 1;
+      border-radius: 24px;
+      overflow: hidden;
+      position: relative;
+      background:
+        linear-gradient(180deg, rgba(8,17,31,0.12), rgba(8,17,31,0.48)),
+        url('hero.jpg') center/cover no-repeat;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .stars, .stars::before, .stars::after {
+      display: none;
+    }
+
+    .moon {
+      display: none;
+    }
+
+    .silhouette {
+      display: none;
+    }
+
+    .silhouette .bike,
+    .silhouette .person1,
+    .silhouette .person2,
+    .silhouette .ground {
+      position: absolute;
+      background: rgba(5, 8, 15, 0.96);
+    }
+
+    .silhouette .ground {
+      left: -10%;
+      bottom: -6%;
+      width: 120%;
+      height: 24%;
+      border-radius: 50% 50% 0 0;
+      background: linear-gradient(180deg, rgba(9,14,24,0.2), rgba(3,6,10,0.98));
+    }
+
+    .wheel {
+      position: absolute;
+      bottom: 10%;
+      width: 74px;
+      height: 74px;
+      border: 5px solid rgba(5,8,15,0.98);
+      border-radius: 50%;
+    }
+
+    .wheel.left { left: 14%; }
+    .wheel.right { right: 10%; }
+
+    .frame {
+      position: absolute;
+      left: 27%;
+      right: 22%;
+      bottom: 38%;
+      height: 5px;
+      background: rgba(5,8,15,0.98);
+      transform: rotate(-7deg);
+      border-radius: 999px;
+    }
+
+    .bar1, .bar2, .bar3, .handle, .seat {
+      position: absolute;
+      height: 5px;
+      background: rgba(5,8,15,0.98);
+      border-radius: 999px;
+    }
+
+    .bar1 { left: 23%; width: 22%; bottom: 49%; transform: rotate(42deg); }
+    .bar2 { left: 42%; width: 18%; bottom: 48%; transform: rotate(-43deg); }
+    .bar3 { left: 44%; width: 14%; bottom: 55%; transform: rotate(66deg); }
+    .handle { right: 18%; width: 15%; bottom: 56%; transform: rotate(-20deg); }
+    .seat { left: 37%; width: 12%; bottom: 58%; transform: rotate(7deg); }
+
+    .person1 {
+      left: 38%;
+      bottom: 49%;
+      width: 13%;
+      height: 26%;
+      clip-path: polygon(40% 0%, 62% 0%, 78% 18%, 72% 52%, 88% 100%, 67% 100%, 56% 62%, 48% 100%, 26% 100%, 36% 56%, 30% 18%);
+      border-radius: 18px;
+    }
+
+    .person2 {
+      left: 51%;
+      bottom: 52%;
+      width: 12%;
+      height: 22%;
+      clip-path: polygon(38% 0%, 62% 0%, 78% 18%, 70% 48%, 86% 100%, 66% 100%, 54% 66%, 46% 100%, 26% 100%, 34% 50%, 30% 18%);
+      border-radius: 18px;
+    }
+
+    .head {
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: rgba(5,8,15,0.98);
+    }
+
+    .head.one { left: 43%; bottom: 74%; }
+    .head.two { left: 56%; bottom: 75%; }
+
+    .cover-label {
+      position: absolute;
+      left: 20px;
+      right: 20px;
+      bottom: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 12px;
+    }
+
+    .cover-label .title {
+      font-size: 1.85rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      text-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    }
+
+    .cover-label .artist {
+      font-size: 0.95rem;
+      color: #ede9fe;
+      text-transform: lowercase;
+      text-align: right;
+    }
+
+    .release-meta {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 20px;
+      gap: 12px;
       flex-wrap: wrap;
-      background: linear-gradient(135deg, rgba(231,201,142,0.12), rgba(130,150,255,0.08));
+      padding: 4px 4px 0;
     }
 
-    footer {
-      border-top: 1px solid rgba(255,255,255,0.08);
-      padding: 30px 0 42px;
+    .release-meta small {
       color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.5;
     }
 
-    .footer-inner {
+    .section {
+      padding: 28px 0;
+    }
+
+    .section-header {
       display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .section-header h2 {
+      font-size: clamp(1.55rem, 3vw, 2.4rem);
+      letter-spacing: -0.03em;
+    }
+
+    .section-header p {
+      color: var(--muted);
+      max-width: 58ch;
+      line-height: 1.7;
+    }
+
+    .music-grid,
+    .links-grid,
+    .about-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .music-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .links-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .about-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .music-card,
+    .link-card,
+    .about-card,
+    .contact-card,
+    .footer-card,
+    .panel {
+      padding: 22px;
+    }
+
+    .music-card {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .music-badge,
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--line);
+      color: #ddd6fe;
+      font-size: 0.82rem;
+    }
+
+    .music-card h3,
+    .link-card h3,
+    .about-card h3,
+    .contact-card h3,
+    .panel h3 {
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+    }
+
+    .music-card p,
+    .link-card p,
+    .about-card p,
+    .contact-card p,
+    .panel p,
+    .footer-card p {
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .music-actions,
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: auto;
+    }
+
+    .embed-wrap {
+      overflow: hidden;
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+    }
+
+    iframe {
+      width: 100%;
+      border: 0;
+      display: block;
+    }
+
+    .link-card {
+      min-height: 170px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .link-card .arrow {
+      font-size: 1.25rem;
+      color: #ddd6fe;
+    }
+
+    .about-card ul {
+      margin: 14px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .contact-card {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .contact-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .contact-pill {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--line);
+      color: var(--text);
+      font-size: 0.92rem;
+    }
+
+    .footer {
+      padding: 12px 0 36px;
+    }
+
+    .footer-card {
+      display: flex;
+      align-items: center;
       justify-content: space-between;
       gap: 16px;
       flex-wrap: wrap;
     }
 
-    @media (max-width: 980px) {
-      .grid-2,
-      .player-grid,
-      .releases,
-      .platforms {
+    .footer-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      color: var(--muted);
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    @media (max-width: 1050px) {
+      .hero-grid,
+      .about-grid,
+      .contact-card,
+      .music-grid,
+      .links-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-inner {
+        padding: 10px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .stats {
         grid-template-columns: 1fr;
       }
     }
 
     @media (max-width: 720px) {
-      .hero-overlay {
-        background:
-          linear-gradient(180deg, rgba(7,8,16,0.18) 0%, rgba(7,8,16,0.36) 58%, rgba(7,8,16,0.64) 100%);
+      .hero { padding-top: 42px; }
+      .hero-copy, .hero-card, .music-card, .link-card, .about-card, .contact-card, .footer-card, .panel {
+        padding: 18px;
+        border-radius: 20px;
       }
-
-      .hero-panel {
-        max-width: 100%;
-      }
-
-      .track-btn {
-        align-items: flex-start;
-      }
-
-      .track-thumb {
-        width: 76px;
-        height: 44px;
-        flex-basis: 76px;
-      }
+      .cover-label .title { font-size: 1.35rem; }
+      .nav-links { gap: 14px; }
+      .section-header { align-items: flex-start; flex-direction: column; }
     }
   </style>
 </head>
 <body>
   <header class="nav">
     <div class="container nav-inner">
-      <a href="#inicio" class="brand">anibalbuild</a>
+      <a href="#inicio" class="brand">
+        <strong>anibalbuild</strong>
+        <span>artista musical · balada pop romántica</span>
+      </a>
+
       <nav class="nav-links">
-        <a href="#identidad">Identidad</a>
-        <a href="#reproductor">Reproductor</a>
-        <a href="#lanzamientos">Lanzamientos</a>
-        <a href="#plataformas">Plataformas</a>
+        <a href="#musica">Música</a>
+        <a href="#playlist">Playlist</a>
+        <a href="#sobre-mi">Sobre mí</a>
         <a href="#contacto">Contacto</a>
       </nav>
     </div>
   </header>
 
-  <section class="hero" id="inicio">
-    <img class="hero-bg" src="hero.jpg" alt="Portada anibalbuild">
-    <div class="hero-overlay"></div>
-    <div class="container hero-content">
-      <div class="hero-panel">
-        <div class="eyebrow">Sitio oficial · piano · nostalgia · emoción real</div>
-        <h1>anibalbuild</h1>
-        <p>
-          Música que se siente antes de entenderse. Un proyecto construido desde la sensibilidad,
-          el recuerdo, la balada y una estética cinematográfica íntima.
-        </p>
-        <div class="button-row">
-          <a class="btn btn-primary" href="#reproductor">Escuchar ahora</a>
-          <a class="btn btn-secondary" href="https://www.youtube.com/@anibalbuild/releases" target="_blank">Abrir releases</a>
-          <a class="btn btn-secondary" href="https://www.instagram.com/anibalbuild/" target="_blank">Instagram</a>
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">✨ nuevo enfoque visual · romántico · nocturno · nostálgico</div>
+          <h1>Música para sentir la noche<br />con el corazón abierto.</h1>
+          <p>
+            Bienvenido al universo de <strong>anibalbuild</strong>: canciones con alma romántica,
+            atmósferas nocturnas y una sensibilidad íntima que mezcla balada pop, emoción sincera y nostalgia.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#musica">Escuchar música</a>
+            <a class="btn btn-secondary" href="https://youtube.com/@anibalbuild" target="_blank" rel="noopener noreferrer">Ver canal de YouTube</a>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <strong>single destacado</strong>
+              <span>Noche Tranquila</span>
+            </div>
+            <div class="stat">
+              <strong>estilo</strong>
+              <span>romántico, nocturno, emotivo</span>
+            </div>
+            <div class="stat">
+              <strong>meta</strong>
+              <span>crear una identidad artística memorable</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="cover-art" aria-label="Portada artística de Noche Tranquila">
+            <div class="stars"></div>
+            <div class="moon"></div>
+            <div class="silhouette">
+              <div class="ground"></div>
+              <div class="wheel left"></div>
+              <div class="wheel right"></div>
+              <div class="frame"></div>
+              <div class="bar1"></div>
+              <div class="bar2"></div>
+              <div class="bar3"></div>
+              <div class="handle"></div>
+              <div class="seat"></div>
+              <div class="person1"></div>
+              <div class="person2"></div>
+              <div class="head one"></div>
+              <div class="head two"></div>
+            </div>
+            <div class="cover-label">
+              <div class="title">Noche Tranquila</div>
+              <div class="artist">anibalbuild</div>
+            </div>
+          </div>
+
+          <div class="release-meta">
+            <small>
+              Una estética visual pensada para transmitir ternura, nostalgia y ese aire de súplica amorosa que define tu sonido.
+            </small>
+            <a class="btn btn-secondary" href="#playlist">Ver playlist</a>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="identidad">
-    <div class="container">
-      <div class="section-head">
-        <div class="kicker">Identidad</div>
-        <h2>Una propuesta musical íntima</h2>
-        <p>
-          anibalbuild nace desde la necesidad de transformar emociones reales en canciones.
-          Piano, nostalgia, belleza melancólica y una conexión honesta con quien escucha.
-        </p>
-      </div>
-      <div class="grid-2">
-        <article class="card">
-          <h3>El sentimiento detrás del proyecto</h3>
-          <p>
-            Este espacio reúne composiciones inspiradas en el recuerdo, el amor que permanece y la emoción que no desaparece.
-            Cada tema busca transmitir cercanía, sensibilidad y profundidad.
-          </p>
-        </article>
-        <article class="card">
-          <h3>Sonido y estética</h3>
-          <p>
-            Baladas, atmósferas suaves, instrumentales evocadores y una imagen visual cinematográfica pensada para acompañar la música.
-          </p>
-        </article>
-      </div>
-    </div>
-  </section>
+    <section class="section" id="musica">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2>Música destacada</h2>
+            <p>Una selección inicial para presentar tu identidad artística de forma clara y profesional.</p>
+          </div>
+        </div>
 
-  <section id="reproductor">
-    <div class="container">
-      <div class="section-head">
-        <div class="kicker">Reproductor</div>
-        <h2>Escucha mi música</h2>
-        <p>
-          Aquí puedes reproducir tus lanzamientos directamente desde la web.
-        </p>
-      </div>
+        <div class="music-grid">
+          <article class="music-card">
+            <span class="music-badge">🌙 single principal</span>
+            <h3>Noche Tranquila</h3>
+            <p>
+              Balada pop de aire nocturno, íntimo y nostálgico. Una canción pensada para conectar desde la ternura,
+              con una vibra romántica y emocionalmente cercana.
+            </p>
+            <div class="music-actions">
+              <a class="btn btn-primary" href="https://www.youtube.com/watch?v=NCbOeBV_PEI&list=PLalgSO3LX-NlqFkEEaF61jmV40dEHxRGT" target="_blank" rel="noopener noreferrer">Escuchar ahora</a>
+            </div>
+          </article>
 
-      <div class="player-grid">
-        <div class="card video-card">
-          <div class="video-wrap">
+          <article class="music-card">
+            <span class="music-badge">🎼 identidad</span>
+            <h3>Sonido anibalbuild</h3>
+            <p>
+              Baladas y canciones melódicas con enfoque romántico, arreglos suaves y una sensibilidad que busca emocionar sin exagerar.
+            </p>
+            <div class="music-actions">
+              <a class="btn btn-secondary" href="#sobre-mi">Conocer más</a>
+            </div>
+          </article>
+
+          <article class="music-card">
+            <span class="music-badge">📺 contenido</span>
+            <h3>Canal oficial</h3>
+            <p>
+              Descubre visuales, canciones, lanzamientos y el universo creativo completo en YouTube.
+            </p>
+            <div class="music-actions">
+              <a class="btn btn-secondary" href="https://youtube.com/@anibalbuild" target="_blank" rel="noopener noreferrer">Ir al canal</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="playlist">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2>Playlist oficial</h2>
+            <p>Aquí puedes mostrar tus canciones directamente desde YouTube dentro de tu propia página.</p>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3 style="margin-bottom: 14px;">Escucha desde la web</h3>
+          <div class="embed-wrap">
             <iframe
-              id="musicPlayer"
-              src="https://www.youtube.com/embed/NCbOeBV_PEI"
-              title="Reproductor anibalbuild"
+              height="420"
+              src="https://www.youtube.com/embed/videoseries?list=PLalgSO3LX-NlqFkEEaF61jmV40dEHxRGT"
+              title="Playlist oficial de anibalbuild"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowfullscreen>
             </iframe>
           </div>
-          <div class="now-playing" id="nowPlaying">
-            Reproduciendo: <strong>El hombre andante</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2>Plataformas y enlaces</h2>
+            <p>Reemplaza estos enlaces por tus perfiles reales en Spotify, Instagram, TikTok o cualquier plataforma que uses.</p>
           </div>
         </div>
 
-        <div class="track-list" id="trackList"></div>
-      </div>
-    </div>
-  </section>
+        <div class="links-grid">
+          <a class="link-card" href="https://youtube.com/@anibalbuild" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="pill">YouTube</div>
+              <h3 style="margin-top: 14px;">Canal oficial</h3>
+              <p>Videos, canciones, estrenos y contenido artístico.</p>
+            </div>
+            <div class="arrow">→</div>
+          </a>
 
-  <section id="lanzamientos">
-    <div class="container">
-      <div class="section-head">
-        <div class="kicker">Lanzamientos</div>
-        <h2>Mis releases</h2>
-        <p>
-          Acceso directo a algunos puntos clave de tu catálogo y a tu página oficial de releases.
-        </p>
-      </div>
+          <a class="link-card" href="#" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="pill">Spotify</div>
+              <h3 style="margin-top: 14px;">Perfil de artista</h3>
+              <p>Agrega aquí tu enlace cuando tu perfil esté listo.</p>
+            </div>
+            <div class="arrow">→</div>
+          </a>
 
-      <div class="releases">
-        <article class="release">
-          <div class="release-number">01</div>
-          <div>
-            <h3>Vilma Núñez</h3>
-            <p>Uno de los temas más reconocibles dentro de tu catálogo.</p>
-            <a href="https://www.youtube.com/watch?v=lKCHxcsPTNI" target="_blank">Abrir lanzamiento</a>
-          </div>
-        </article>
+          <a class="link-card" href="#" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="pill">Instagram</div>
+              <h3 style="margin-top: 14px;">Visuales y novedades</h3>
+              <p>Ideal para mostrar portadas, reels y avances.</p>
+            </div>
+            <div class="arrow">→</div>
+          </a>
 
-        <article class="release">
-          <div class="release-number">02</div>
-          <div>
-            <h3>Primero de Junio</h3>
-            <p>Balada íntima con una sensibilidad emocional muy marcada.</p>
-            <a href="https://www.youtube.com/watch?v=b_znk6Sc-Ls" target="_blank">Abrir lanzamiento</a>
-          </div>
-        </article>
-
-        <article class="release">
-          <div class="release-number">03</div>
-          <div>
-            <h3>Dime Que Te Quedas</h3>
-            <p>Otro de tus releases destacados con acceso directo desde la web.</p>
-            <a href="https://www.youtube.com/watch?v=VKhk3AopNsk" target="_blank">Abrir lanzamiento</a>
-          </div>
-        </article>
-
-        <article class="release">
-          <div class="release-number">04</div>
-          <div>
-            <h3>Todos mis releases</h3>
-            <p>Abre tu página oficial de lanzamientos para recorrer tu catálogo completo.</p>
-            <a href="https://www.youtube.com/@anibalbuild/releases" target="_blank">Abrir página de releases</a>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="plataformas">
-    <div class="container">
-      <div class="section-head">
-        <div class="kicker">Plataformas</div>
-        <h2>Escucha y sigue el proyecto</h2>
-        <p>
-          Tus plataformas reales integradas en un diseño limpio, estable y más profesional.
-        </p>
-      </div>
-      <div class="platforms">
-        <a class="platform" href="https://www.youtube.com/@anibalbuild" target="_blank">
-          <strong>YouTube</strong>
-          <span>Canal oficial con videos, lanzamientos y contenido musical.</span>
-        </a>
-        <a class="platform" href="https://open.spotify.com/user/im0hb56341foca5u6hd415g5p?si=90e39b0e484e423d" target="_blank">
-          <strong>Spotify</strong>
-          <span>Accede a tu perfil musical y fortalece tu identidad como artista.</span>
-        </a>
-        <a class="platform" href="https://www.instagram.com/anibalbuild/" target="_blank">
-          <strong>Instagram</strong>
-          <span>Tu universo visual, portadas, adelantos y estética artística.</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section id="contacto">
-    <div class="container">
-      <div class="card contact-box">
-        <div>
-          <div class="kicker">Contacto</div>
-          <h2 style="margin:0 0 10px;">Conecta con anibalbuild</h2>
-          <p style="margin:0; color:var(--muted); line-height:1.7;">Correo: <strong>lavidaeslucida@gmail.com</strong></p>
+          <a class="link-card" href="#" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="pill">TikTok</div>
+              <h3 style="margin-top: 14px;">Clips cortos</h3>
+              <p>Usa este espacio para promocionar previews y lanzamientos.</p>
+            </div>
+            <div class="arrow">→</div>
+          </a>
         </div>
-        <a class="btn btn-primary" href="mailto:lavidaeslucida@gmail.com">Escribir correo</a>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <footer>
-    <div class="container footer-inner">
-      <div>© 2026 anibalbuild</div>
-      <div>Hecho con piano, nostalgia y emoción.</div>
+    <section class="section" id="sobre-mi">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2>Sobre mí</h2>
+            <p>Una sección de presentación para que tu web tenga una identidad más profesional y humana.</p>
+          </div>
+        </div>
+
+        <div class="about-grid">
+          <article class="about-card">
+            <h3>Quién es anibalbuild</h3>
+            <p>
+              anibalbuild es un proyecto musical centrado en la emoción, la nostalgia y la sensibilidad romántica.
+              La propuesta artística mezcla balada pop, melodías íntimas y una atmósfera nocturna que busca conectar con quienes sienten la música desde lo más personal.
+            </p>
+          </article>
+
+          <article class="about-card">
+            <h3>Identidad artística</h3>
+            <ul>
+              <li>Balada pop romántica y melódica</li>
+              <li>Ambientes nocturnos y nostálgicos</li>
+              <li>Estética cinematográfica y sentimental</li>
+              <li>Canciones con cercanía emocional y honestidad</li>
+            </ul>
+          </article>
+        </div>
+
+        <article class="contact-card" id="contacto">
+          <div>
+            <h3>Contacto y colaboración</h3>
+            <p>
+              Puedes usar esta sección para recibir propuestas, colaboraciones, oportunidades de prensa o mensajes de seguidores.
+            </p>
+            <div class="contact-list">
+              <a class="contact-pill" href="mailto:tuemail@correo.com">tuemail@correo.com</a>
+              <a class="contact-pill" href="https://youtube.com/@anibalbuild" target="_blank" rel="noopener noreferrer">@anibalbuild</a>
+            </div>
+          </div>
+
+          <div class="contact-actions">
+            <a class="btn btn-primary" href="mailto:tuemail@correo.com">Escríbeme</a>
+            <a class="btn btn-secondary" href="#inicio">Volver arriba</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-card">
+        <p>© <span id="year"></span> anibalbuild. Todos los derechos reservados.</p>
+        <div class="footer-links">
+          <a href="#musica">Música</a>
+          <a href="#playlist">Playlist</a>
+          <a href="#sobre-mi">Sobre mí</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+      </div>
     </div>
   </footer>
 
   <script>
-    const tracks = [
-      { id: "NCbOeBV_PEI", title: "El hombre andante" },
-      { id: "A_kuniKhTT8", title: "Gótica" },
-      { id: "PPOsMxi7GMA", title: "Llevame a la sima" },
-      { id: "zPR2yH3nMKY", title: "Te quieres casar conmigo" },
-      { id: "QurYXNNT3Mk", title: "Contigo soy invencible" },
-      { id: "5gKUaClzC0k", title: "El amor lo conquista todo" },
-      { id: "H5Qwd-R9noU", title: "En memoria de mi Padre" },
-      { id: "NDnm6niNg_c", title: "Lluvia de Estrella" },
-      { id: "g3LMEz9kkCQ", title: "Estar Bien" },
-      { id: "_IqV_AVS544", title: "La cometa" },
-      { id: "MqyDg2tKncE", title: "Espero que llames" },
-      { id: "SRtHIE7kXGk", title: "Ángel Celestial" },
-      { id: "rJPI0i9GcVk", title: "El poder de la felicidad" },
-      { id: "NkFaSbz6n_c", title: "Venus 5" },
-      { id: "Xxz6IBRZdcQ", title: "Lollypopbeatz" },
-      { id: "lkO89Tw0XdE", title: "Más Allá Del Tiempo" },
-      { id: "YVyUY3rRNHg", title: "Oso Teddy" },
-      { id: "p_GLVYY3dno", title: "Ciudad Dinamica" },
-      { id: "4o2o4jq7pdE", title: "La Mujer de Mis Sueños (feat. SKAR)" },
-      { id: "lKCHxcsPTNI", title: "Vilma Núñez" },
-      { id: "b_znk6Sc-Ls", title: "Primero de Junio" },
-      { id: "t5oIz8TvXzw", title: "Luz del Alba" },
-      { id: "VKhk3AopNsk", title: "Dime Que Te Quedas" },
-      { id: "LwI-C4Ex1Pw", title: "Recuerdos de Medianoche" }
-    ];
-
-    const trackList = document.getElementById("trackList");
-    const player = document.getElementById("musicPlayer");
-    const nowPlaying = document.getElementById("nowPlaying");
-
-    function renderTracks() {
-      trackList.innerHTML = "";
-
-      tracks.forEach((track, index) => {
-        const button = document.createElement("button");
-        button.className = "track-btn" + (index === 0 ? " active" : "");
-        button.innerHTML = `
-          <img class="track-thumb" src="https://img.youtube.com/vi/${track.id}/hqdefault.jpg" alt="${track.title}">
-          <div class="track-meta">
-            <strong>${track.title}</strong>
-            <small>Track ${String(index + 1).padStart(2, "0")} · Reproducir en la web</small>
-          </div>
-        `;
-
-        button.addEventListener("click", () => {
-          player.src = \`https://www.youtube.com/embed/\${track.id}\`;
-          nowPlaying.innerHTML = \`Reproduciendo: <strong>\${track.title}</strong>\`;
-
-          document.querySelectorAll(".track-btn").forEach(btn => btn.classList.remove("active"));
-          button.classList.add("active");
-        });
-
-        trackList.appendChild(button);
-      });
-    }
-
-    renderTracks();
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
