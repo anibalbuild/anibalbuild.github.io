@@ -518,10 +518,25 @@
       grid-template-columns: 104px 1fr;
       gap: 12px;
       align-items: center;
+      width: 100%;
       padding: 10px;
       border-radius: 16px;
       border: 1px solid transparent;
+      background: transparent;
+      color: inherit;
+      text-align: left;
+      cursor: pointer;
       transition: 0.2s ease;
+    }
+
+    .track-item.active {
+      background: rgba(29,185,84,0.10);
+      border-color: rgba(29,185,84,0.38);
+    }
+
+    .track-item:focus-visible {
+      outline: 2px solid rgba(29,185,84,0.42);
+      outline-offset: 2px;
     }
 
     .track-item:hover {
@@ -757,12 +772,13 @@
 
         <div class="music-grid">
           <article class="music-card">
-            <img class="music-thumb" src="hero.jpg" alt="Portada de Noche Tranquila" />
+            <img class="music-thumb" src="https://img.youtube.com/vi/NCbOeBV_PEI/hqdefault.jpg" alt="Portada de Noche Tranquila" />
             <span class="music-badge">🌙 single principal</span>
             <h3>Noche Tranquila</h3>
-            <p>Tu lanzamiento más íntimo y nocturno, ideal para abrir la web con una identidad romántica fuerte.</p>
+            <p>Tu lanzamiento más íntimo y nocturno, ahora conectado directamente con el reproductor principal de la web.</p>
             <div class="music-actions">
-              <a class="btn btn-primary" href="https://youtube.com/playlist?list=PLalgSO3LX-NlqFkEEaF61jmV40dEHxRGT&si=betlz9NJVBILpnGT" target="_blank" rel="noopener noreferrer">Escuchar</a>
+              <button class="btn btn-primary featured-play" type="button" data-video-id="NCbOeBV_PEI" data-title="Noche Tranquila">Reproducir aquí</button>
+              <a class="btn btn-secondary" href="https://www.youtube.com/watch?v=NCbOeBV_PEI" target="_blank" rel="noopener noreferrer">Ver en YouTube</a>
             </div>
           </article>
 
@@ -772,6 +788,7 @@
             <h3>Estar Bien</h3>
             <p>Otra pieza reciente para reforzar la sección destacada con más catálogo visible desde el primer vistazo.</p>
             <div class="music-actions">
+              <button class="btn btn-secondary featured-play" type="button" data-video-id="g3LMEz9kkCQ" data-title="Estar Bien">Reproducir aquí</button>
               <a class="btn btn-secondary" href="https://www.youtube.com/watch?v=g3LMEz9kkCQ" target="_blank" rel="noopener noreferrer">Ver en YouTube</a>
             </div>
           </article>
@@ -782,27 +799,19 @@
             <h3>Lluvia de Estrellas</h3>
             <p>Suma variedad visual y ayuda a que tu página no dependa solo de una canción principal.</p>
             <div class="music-actions">
+              <button class="btn btn-secondary featured-play" type="button" data-video-id="NDnm6niNg_c" data-title="Lluvia de Estrellas">Reproducir aquí</button>
               <a class="btn btn-secondary" href="https://www.youtube.com/watch?v=NDnm6niNg_c" target="_blank" rel="noopener noreferrer">Ver en YouTube</a>
             </div>
           </article>
 
           <article class="music-card">
-            <img class="music-thumb" src="https://img.youtube.com/vi/dLk8SZkeQ7s/hqdefault.jpg" alt="Portada de Ciudad Dinámica" />
+            <img class="music-thumb" src="https://img.youtube.com/vi/p_GLVYY3dno/hqdefault.jpg" alt="Portada de Ciudad Dinámica" />
             <span class="music-badge">🏙️ release</span>
             <h3>Ciudad Dinámica</h3>
-            <p>Le da más profundidad al catálogo y mejora mucho la percepción profesional de la web.</p>
+            <p>Le da más profundidad al catálogo y queda enlazada con el reproductor principal para escucharla dentro de tu web.</p>
             <div class="music-actions">
-              <a class="btn btn-secondary" href="https://www.youtube.com/watch?v=dLk8SZkeQ7s" target="_blank" rel="noopener noreferrer">Ver en YouTube</a>
-            </div>
-          </article>
-
-          <article class="music-card">
-            <img class="music-thumb" src="https://img.youtube.com/vi/NCbOeBV_PEI/hqdefault.jpg" alt="Portada de El hombre andante" />
-            <span class="music-badge">🎸 release</span>
-            <h3>El hombre andante</h3>
-            <p>Una canción que ya te ayuda a que la sección destacada tenga más movimiento visual y más clics potenciales.</p>
-            <div class="music-actions">
-              <a class="btn btn-secondary" href="https://www.youtube.com/watch?v=NCbOeBV_PEI" target="_blank" rel="noopener noreferrer">Ver en YouTube</a>
+              <button class="btn btn-secondary featured-play" type="button" data-video-id="p_GLVYY3dno" data-title="Ciudad Dinámica">Reproducir aquí</button>
+              <a class="btn btn-secondary" href="https://www.youtube.com/watch?v=p_GLVYY3dno&list=PLalgSO3LX-NlqFkEEaF61jmV40dEHxRGT&index=18" target="_blank" rel="noopener noreferrer">Ver en YouTube</a>
             </div>
           </article>
 
@@ -812,7 +821,19 @@
             <h3>Gótica</h3>
             <p>Sirve muy bien para que la web muestre más amplitud de lanzamientos sin perder el aire artístico.</p>
             <div class="music-actions">
+              <button class="btn btn-secondary featured-play" type="button" data-video-id="A_kuniKhTT8" data-title="Gótica">Reproducir aquí</button>
               <a class="btn btn-secondary" href="https://www.youtube.com/watch?v=A_kuniKhTT8" target="_blank" rel="noopener noreferrer">Ver en YouTube</a>
+            </div>
+          </article>
+
+          <article class="music-card">
+            <img class="music-thumb" src="https://img.youtube.com/vi/VKhk3AopNsk/hqdefault.jpg" alt="Portada de Dime Que Te Quedas" />
+            <span class="music-badge">💚 release</span>
+            <h3>Dime Que Te Quedas</h3>
+            <p>Una canción más para que la sección destacada tenga mejor presencia de catálogo y más opciones de escucha.</p>
+            <div class="music-actions">
+              <button class="btn btn-secondary featured-play" type="button" data-video-id="VKhk3AopNsk" data-title="Dime Que Te Quedas">Reproducir aquí</button>
+              <a class="btn btn-secondary" href="https://www.youtube.com/watch?v=VKhk3AopNsk" target="_blank" rel="noopener noreferrer">Ver en YouTube</a>
             </div>
           </article>
         </div>
@@ -829,13 +850,15 @@
         </div>
 
         <div class="panel">
-          <h3 style="margin-bottom: 14px;">Escucha la playlist completa desde la web</h3>
+          <h3 style="margin-bottom: 10px;">Escucha la playlist completa desde la web</h3>
+          <p id="nowPlaying" class="muted" style="margin-bottom: 14px;">Ahora sonando: <strong>Noche Tranquila</strong></p>
           <div class="playlist-layout">
             <div>
               <div class="embed-wrap">
                 <iframe
+                  id="ytPlayer"
                   height="420"
-                  src="https://www.youtube.com/embed/videoseries?list=PLalgSO3LX-NlqFkEEaF61jmV40dEHxRGT&autoplay=1&rel=0&loop=1"
+                  src="https://www.youtube.com/embed/NCbOeBV_PEI?rel=0&list=PLalgSO3LX-NlqFkEEaF61jmV40dEHxRGT&index=0"
                   title="Playlist oficial de anibalbuild"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowfullscreen>
@@ -847,55 +870,55 @@
             </div>
 
             <aside class="playlist-list">
-              <h4>Lo que la gente puede explorar</h4>
+              <h4>Canciones de tu playlist</h4>
 
-              <a class="track-item" href="https://youtube.com/playlist?list=PLalgSO3LX-NlqFkEEaF61jmV40dEHxRGT&si=betlz9NJVBILpnGT" target="_blank" rel="noopener noreferrer">
-                <img class="track-thumb" src="hero.jpg" alt="Portada de Noche Tranquila" />
+              <button class="track-item active" type="button" data-video-id="NCbOeBV_PEI" data-title="Noche Tranquila" data-index="0">
+                <img class="track-thumb" src="https://img.youtube.com/vi/NCbOeBV_PEI/hqdefault.jpg" alt="Portada de Noche Tranquila" />
                 <div class="track-meta">
                   <strong>Noche Tranquila</strong>
-                  <span>Tu enfoque más romántico y nocturno.</span>
+                  <span>Romántica, nocturna y nostálgica.</span>
                 </div>
-              </a>
+              </button>
 
-              <a class="track-item" href="https://www.youtube.com/watch?v=g3LMEz9kkCQ" target="_blank" rel="noopener noreferrer">
+              <button class="track-item" type="button" data-video-id="g3LMEz9kkCQ" data-title="Estar Bien" data-index="1">
                 <img class="track-thumb" src="https://img.youtube.com/vi/g3LMEz9kkCQ/hqdefault.jpg" alt="Portada de Estar Bien" />
                 <div class="track-meta">
                   <strong>Estar Bien</strong>
                   <span>Single reciente dentro de tu catálogo.</span>
                 </div>
-              </a>
+              </button>
 
-              <a class="track-item" href="https://www.youtube.com/watch?v=NDnm6niNg_c" target="_blank" rel="noopener noreferrer">
+              <button class="track-item" type="button" data-video-id="NDnm6niNg_c" data-title="Lluvia de Estrellas" data-index="2">
                 <img class="track-thumb" src="https://img.youtube.com/vi/NDnm6niNg_c/hqdefault.jpg" alt="Portada de Lluvia de Estrellas" />
                 <div class="track-meta">
                   <strong>Lluvia de Estrellas</strong>
                   <span>Más variedad visual para la sección.</span>
                 </div>
-              </a>
+              </button>
 
-              <a class="track-item" href="https://www.youtube.com/watch?v=dLk8SZkeQ7s" target="_blank" rel="noopener noreferrer">
-                <img class="track-thumb" src="https://img.youtube.com/vi/dLk8SZkeQ7s/hqdefault.jpg" alt="Portada de Ciudad Dinámica" />
+              <button class="track-item" type="button" data-video-id="p_GLVYY3dno" data-title="Ciudad Dinámica" data-index="17">
+                <img class="track-thumb" src="https://img.youtube.com/vi/p_GLVYY3dno/hqdefault.jpg" alt="Portada de Ciudad Dinámica" />
                 <div class="track-meta">
                   <strong>Ciudad Dinámica</strong>
                   <span>Lanzamiento con presencia propia en la lista.</span>
                 </div>
-              </a>
+              </button>
 
-              <a class="track-item" href="https://www.youtube.com/watch?v=NCbOeBV_PEI" target="_blank" rel="noopener noreferrer">
-                <img class="track-thumb" src="https://img.youtube.com/vi/NCbOeBV_PEI/hqdefault.jpg" alt="Portada de El hombre andante" />
-                <div class="track-meta">
-                  <strong>El hombre andante</strong>
-                  <span>Otra canción visible para atraer clics.</span>
-                </div>
-              </a>
-
-              <a class="track-item" href="https://www.youtube.com/watch?v=A_kuniKhTT8" target="_blank" rel="noopener noreferrer">
+              <button class="track-item" type="button" data-video-id="A_kuniKhTT8" data-title="Gótica" data-index="4">
                 <img class="track-thumb" src="https://img.youtube.com/vi/A_kuniKhTT8/hqdefault.jpg" alt="Portada de Gótica" />
                 <div class="track-meta">
                   <strong>Gótica</strong>
                   <span>Más catálogo visible junto al reproductor.</span>
                 </div>
-              </a>
+              </button>
+
+              <button class="track-item" type="button" data-video-id="VKhk3AopNsk" data-title="Dime Que Te Quedas" data-index="5">
+                <img class="track-thumb" src="https://img.youtube.com/vi/VKhk3AopNsk/hqdefault.jpg" alt="Portada de Dime Que Te Quedas" />
+                <div class="track-meta">
+                  <strong>Dime Que Te Quedas</strong>
+                  <span>Más opciones para descubrir tu música.</span>
+                </div>
+              </button>
             </aside>
           </div>
         </div>
@@ -1017,6 +1040,38 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    const playlistId = 'PLalgSO3LX-NlqFkEEaF61jmV40dEHxRGT';
+    const ytPlayer = document.getElementById('ytPlayer');
+    const nowPlaying = document.getElementById('nowPlaying');
+    const trackItems = Array.from(document.querySelectorAll('.track-item'));
+    const featuredButtons = Array.from(document.querySelectorAll('.featured-play'));
+
+    function playTrack(videoId, title, index = 0) {
+      ytPlayer.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&list=${playlistId}&index=${index}`;
+      nowPlaying.innerHTML = `Ahora sonando: <strong>${title}</strong>`;
+
+      trackItems.forEach((item) => {
+        const isActive = item.dataset.videoId === videoId;
+        item.classList.toggle('active', isActive);
+      });
+
+      document.getElementById('playlist').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    trackItems.forEach((item, index) => {
+      item.addEventListener('click', () => {
+        playTrack(item.dataset.videoId, item.dataset.title, item.dataset.index || index);
+      });
+    });
+
+    featuredButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const matchingTrack = trackItems.find((item) => item.dataset.videoId === button.dataset.videoId);
+        const index = matchingTrack ? matchingTrack.dataset.index : 0;
+        playTrack(button.dataset.videoId, button.dataset.title, index);
+      });
+    });
   </script>
 </body>
 </html>
