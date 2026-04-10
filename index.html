@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>anibalbuild | Artista musical</title>
-  <meta name="description" content="Sitio oficial de anibalbuild. Música romántica, nocturna y nostálgica." />
-  <meta name="theme-color" content="#0f172a" />
+  <meta name="description" content="Sitio oficial de anibalbuild. Baladas pop románticas, nocturnas y nostálgicas." />
+  <meta name="theme-color" content="#050b16" />
   <style>
     :root {
       --bg: #030712;
@@ -25,13 +25,14 @@
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
       font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at top left, rgba(30,215,96,0.12), transparent 24%),
-        radial-gradient(circle at top right, rgba(52,211,153,0.08), transparent 22%),
+        radial-gradient(circle at top left, rgba(30,215,96,0.10), transparent 24%),
+        radial-gradient(circle at top right, rgba(52,211,153,0.07), transparent 20%),
         linear-gradient(180deg, #02050d 0%, #050b16 38%, #08111f 100%);
       min-height: 100vh;
     }
@@ -91,9 +92,7 @@
       transition: 0.2s ease;
     }
 
-    .nav-links a:hover {
-      color: var(--text);
-    }
+    .nav-links a:hover { color: var(--text); }
 
     .btn {
       display: inline-flex;
@@ -106,6 +105,7 @@
       font-weight: 700;
       transition: transform 0.2s ease, opacity 0.2s ease, border-color 0.2s ease, background 0.2s ease;
       cursor: pointer;
+      font-size: 0.96rem;
     }
 
     .btn:hover { transform: translateY(-1px); }
@@ -117,7 +117,7 @@
     }
 
     .btn-secondary {
-      background: rgba(255,255,255,0.05);
+      background: rgba(255,255,255,0.04);
       border-color: var(--line);
       color: var(--text);
     }
@@ -142,7 +142,7 @@
     .contact-card,
     .footer-card {
       border: 1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.04));
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.04));
       border-radius: var(--radius);
       box-shadow: var(--shadow);
     }
@@ -176,10 +176,10 @@
       margin-bottom: 18px;
     }
 
-    h1, h2, h3, p { margin: 0; }
+    h1, h2, h3, h4, p { margin: 0; }
 
     h1 {
-      font-size: clamp(2.4rem, 5vw, 4.6rem);
+      font-size: clamp(2.4rem, 5vw, 4.7rem);
       line-height: 0.95;
       letter-spacing: -0.04em;
       margin-bottom: 18px;
@@ -187,7 +187,7 @@
 
     .hero-copy p {
       font-size: 1.05rem;
-      line-height: 1.7;
+      line-height: 1.75;
       color: var(--muted);
       max-width: 64ch;
     }
@@ -215,13 +215,14 @@
 
     .stat strong {
       display: block;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       margin-bottom: 6px;
     }
 
     .stat span {
       color: var(--muted);
       font-size: 0.92rem;
+      line-height: 1.5;
     }
 
     .hero-card {
@@ -242,116 +243,14 @@
       border: 1px solid rgba(255,255,255,0.12);
     }
 
-    .stars, .stars::before, .stars::after {
-      display: none;
-    }
-
-    .moon {
-      display: none;
-    }
-
-    .silhouette {
-      display: none;
-    }
-
-    .silhouette .bike,
-    .silhouette .person1,
-    .silhouette .person2,
-    .silhouette .ground {
-      position: absolute;
-      background: rgba(5, 8, 15, 0.96);
-    }
-
-    .silhouette .ground {
-      left: -10%;
-      bottom: -6%;
-      width: 120%;
-      height: 24%;
-      border-radius: 50% 50% 0 0;
-      background: linear-gradient(180deg, rgba(9,14,24,0.2), rgba(3,6,10,0.98));
-    }
-
-    .wheel {
-      position: absolute;
-      bottom: 10%;
-      width: 74px;
-      height: 74px;
-      border: 5px solid rgba(5,8,15,0.98);
-      border-radius: 50%;
-    }
-
-    .wheel.left { left: 14%; }
-    .wheel.right { right: 10%; }
-
-    .frame {
-      position: absolute;
-      left: 27%;
-      right: 22%;
-      bottom: 38%;
-      height: 5px;
-      background: rgba(5,8,15,0.98);
-      transform: rotate(-7deg);
-      border-radius: 999px;
-    }
-
-    .bar1, .bar2, .bar3, .handle, .seat {
-      position: absolute;
-      height: 5px;
-      background: rgba(5,8,15,0.98);
-      border-radius: 999px;
-    }
-
-    .bar1 { left: 23%; width: 22%; bottom: 49%; transform: rotate(42deg); }
-    .bar2 { left: 42%; width: 18%; bottom: 48%; transform: rotate(-43deg); }
-    .bar3 { left: 44%; width: 14%; bottom: 55%; transform: rotate(66deg); }
-    .handle { right: 18%; width: 15%; bottom: 56%; transform: rotate(-20deg); }
-    .seat { left: 37%; width: 12%; bottom: 58%; transform: rotate(7deg); }
-
-    .person1 {
-      left: 38%;
-      bottom: 49%;
-      width: 13%;
-      height: 26%;
-      clip-path: polygon(40% 0%, 62% 0%, 78% 18%, 72% 52%, 88% 100%, 67% 100%, 56% 62%, 48% 100%, 26% 100%, 36% 56%, 30% 18%);
-      border-radius: 18px;
-    }
-
-    .person2 {
-      left: 51%;
-      bottom: 52%;
-      width: 12%;
-      height: 22%;
-      clip-path: polygon(38% 0%, 62% 0%, 78% 18%, 70% 48%, 86% 100%, 66% 100%, 54% 66%, 46% 100%, 26% 100%, 34% 50%, 30% 18%);
-      border-radius: 18px;
-    }
-
-    .head {
-      position: absolute;
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      background: rgba(5,8,15,0.98);
-    }
-
-    .head.one { left: 43%; bottom: 74%; }
-    .head.two { left: 56%; bottom: 75%; }
-
     .cover-label {
       position: absolute;
       left: 20px;
       right: 20px;
       bottom: 18px;
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       align-items: end;
-      gap: 12px;
-    }
-
-    .cover-label .title {
-      font-size: 1.85rem;
-      font-weight: 800;
-      letter-spacing: -0.04em;
-      text-shadow: 0 10px 30px rgba(0,0,0,0.35);
     }
 
     .cover-label .artist {
@@ -359,6 +258,7 @@
       color: #ede9fe;
       text-transform: lowercase;
       text-align: right;
+      text-shadow: 0 10px 30px rgba(0,0,0,0.35);
     }
 
     .release-meta {
@@ -373,7 +273,7 @@
     .release-meta small {
       color: var(--muted);
       font-size: 0.92rem;
-      line-height: 1.5;
+      line-height: 1.6;
     }
 
     .section {
@@ -395,7 +295,7 @@
 
     .section-header p {
       color: var(--muted);
-      max-width: 58ch;
+      max-width: 62ch;
       line-height: 1.7;
     }
 
@@ -406,17 +306,9 @@
       gap: 18px;
     }
 
-    .music-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .links-grid {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-
-    .about-grid {
-      grid-template-columns: 1fr 1fr;
-    }
+    .music-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .links-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .about-grid { grid-template-columns: 1fr 1fr; }
 
     .music-card,
     .link-card,
@@ -491,9 +383,15 @@
       background: rgba(255,255,255,0.03);
     }
 
+    iframe {
+      width: 100%;
+      border: 0;
+      display: block;
+    }
+
     .playlist-layout {
       display: grid;
-      grid-template-columns: 1.3fr 0.7fr;
+      grid-template-columns: 1.25fr 0.75fr;
       gap: 18px;
       align-items: start;
     }
@@ -529,6 +427,11 @@
       transition: 0.2s ease;
     }
 
+    .track-item:hover {
+      background: rgba(255,255,255,0.05);
+      border-color: var(--line);
+    }
+
     .track-item.active {
       background: rgba(29,185,84,0.10);
       border-color: rgba(29,185,84,0.38);
@@ -539,14 +442,7 @@
       outline-offset: 2px;
     }
 
-    .track-item:hover {
-      background: rgba(255,255,255,0.05);
-      border-color: var(--line);
-    }
-
-    .track-item + .track-item {
-      margin-top: 8px;
-    }
+    .track-item + .track-item { margin-top: 8px; }
 
     .track-thumb {
       width: 100%;
@@ -571,14 +467,8 @@
       line-height: 1.45;
     }
 
-    iframe {
-      width: 100%;
-      border: 0;
-      display: block;
-    }
-
     .link-card {
-      min-height: 170px;
+      min-height: 168px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -587,7 +477,7 @@
 
     .link-card .arrow {
       font-size: 1.25rem;
-      color: #ddd6fe;
+      color: #bbf7d0;
     }
 
     .about-card ul {
@@ -640,9 +530,7 @@
       color: var(--muted);
     }
 
-    .muted {
-      color: var(--muted);
-    }
+    .muted { color: var(--muted); }
 
     @media (max-width: 1050px) {
       .hero-grid,
@@ -671,7 +559,6 @@
         padding: 18px;
         border-radius: 20px;
       }
-      .cover-label .title { font-size: 1.35rem; }
       .nav-links { gap: 14px; }
       .section-header { align-items: flex-start; flex-direction: column; }
     }
@@ -682,7 +569,7 @@
     <div class="container nav-inner">
       <a href="#inicio" class="brand">
         <strong>anibalbuild</strong>
-        <span>artista musical · balada pop romántica</span>
+        <span>balada pop romántica · nocturna · nostálgica</span>
       </a>
 
       <nav class="nav-links">
@@ -698,64 +585,47 @@
     <section class="hero" id="inicio">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <div class="eyebrow">✨ nuevo enfoque visual · romántico · nocturno · nostálgico</div>
-          <h1>Música para sentir la noche<br />con el corazón abierto.</h1>
+          <div class="eyebrow">🌙 canciones para escuchar de noche y sentir de verdad</div>
+          <h1>Baladas que hablan<br />desde el corazón.</h1>
           <p>
-            Bienvenido al universo de <strong>anibalbuild</strong>: canciones con alma romántica,
-            atmósferas nocturnas y una sensibilidad íntima que mezcla balada pop, emoción sincera y nostalgia.
+            Soy <strong>anibalbuild</strong>. Hago música romántica con un aire nocturno, nostálgico y cercano.
+            Mis canciones nacen de esa mezcla entre ternura, memoria y súplica amorosa: melodías para quien todavía siente,
+            recuerda y no quiere callarse lo que lleva dentro.
           </p>
 
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#musica">Escuchar música</a>
-            <a class="btn btn-secondary" href="https://youtube.com/@anibalbuild" target="_blank" rel="noopener noreferrer">Ver canal de YouTube</a>
+            <a class="btn btn-primary" href="https://open.spotify.com/user/im0hb56341foca5u6hd415g5p?si=b6dbaaa70bf54af5" target="_blank" rel="noopener noreferrer">Escúchame en Spotify</a>
+            <a class="btn btn-secondary" href="#playlist">Explorar canciones</a>
           </div>
 
           <div class="stats">
             <div class="stat">
-              <strong>single destacado</strong>
-              <span>Noche Tranquila</span>
+              <strong>sonido</strong>
+              <span>balada pop romántica con atmósfera nocturna</span>
             </div>
             <div class="stat">
-              <strong>estilo</strong>
-              <span>romántico, nocturno, emotivo</span>
+              <strong>emoción</strong>
+              <span>ternura, nostalgia y honestidad emocional</span>
             </div>
             <div class="stat">
-              <strong>meta</strong>
-              <span>crear una identidad artística memorable</span>
+              <strong>escúchalo aquí</strong>
+              <span>Spotify, YouTube, Instagram y lanzamientos</span>
             </div>
           </div>
         </div>
 
         <div class="hero-card">
-          <div class="cover-art" aria-label="Portada artística de Noche Tranquila">
-            <div class="stars"></div>
-            <div class="moon"></div>
-            <div class="silhouette">
-              <div class="ground"></div>
-              <div class="wheel left"></div>
-              <div class="wheel right"></div>
-              <div class="frame"></div>
-              <div class="bar1"></div>
-              <div class="bar2"></div>
-              <div class="bar3"></div>
-              <div class="handle"></div>
-              <div class="seat"></div>
-              <div class="person1"></div>
-              <div class="person2"></div>
-              <div class="head one"></div>
-              <div class="head two"></div>
-            </div>
+          <div class="cover-art" aria-label="Portada principal de anibalbuild">
             <div class="cover-label">
-              <div></div>
               <div class="artist">anibalbuild</div>
             </div>
           </div>
 
           <div class="release-meta">
             <small>
-              Una estética visual pensada para transmitir ternura, nostalgia y ese aire de súplica amorosa que define tu sonido.
+              Una portada limpia y directa para presentar tu identidad visual sin distraer del nombre del proyecto.
             </small>
-            <a class="btn btn-secondary" href="#playlist">Ver playlist</a>
+            <a class="btn btn-secondary" href="https://www.youtube.com/@anibalbuild/releases" target="_blank" rel="noopener noreferrer">Ver lanzamientos</a>
           </div>
         </div>
       </div>
@@ -766,7 +636,10 @@
         <div class="section-header">
           <div>
             <h2>Música destacada</h2>
-            <p>Una selección inicial para presentar tu identidad artística de forma clara y profesional.</p>
+            <p>
+              Una selección para entrar a mi universo musical: canciones románticas, nocturnas y emocionales,
+              cada una con su propia luz, su propio recuerdo y su propia forma de decir lo que cuesta olvidar.
+            </p>
           </div>
         </div>
 
@@ -775,7 +648,9 @@
             <img class="music-thumb" src="https://img.youtube.com/vi/P6PSARJ_BjI/hqdefault.jpg" alt="Portada de Noche Tranquila" />
             <span class="music-badge">🌙 single principal</span>
             <h3>Noche Tranquila</h3>
-            <p>Tu lanzamiento más íntimo y nocturno, ahora conectado directamente con el reproductor principal de la web.</p>
+            <p>
+              Una balada nocturna, íntima y nostálgica. Suave por fuera, pero llena de sentimiento por dentro.
+            </p>
             <div class="music-actions">
               <button class="btn btn-primary featured-play" type="button" data-video-id="P6PSARJ_BjI" data-title="Noche Tranquila">Reproducir aquí</button>
               <a class="btn btn-secondary" href="https://www.youtube.com/watch?v=P6PSARJ_BjI" target="_blank" rel="noopener noreferrer">Ver en YouTube</a>
@@ -786,7 +661,9 @@
             <img class="music-thumb" src="https://img.youtube.com/vi/g3LMEz9kkCQ/hqdefault.jpg" alt="Portada de Estar Bien" />
             <span class="music-badge">✨ release</span>
             <h3>Estar Bien</h3>
-            <p>Otra pieza reciente para reforzar la sección destacada con más catálogo visible desde el primer vistazo.</p>
+            <p>
+              Una canción más luminosa, pero igual de honesta. Habla de seguir adelante sin dejar de sentir.
+            </p>
             <div class="music-actions">
               <button class="btn btn-secondary featured-play" type="button" data-video-id="g3LMEz9kkCQ" data-title="Estar Bien">Reproducir aquí</button>
               <a class="btn btn-secondary" href="https://www.youtube.com/watch?v=g3LMEz9kkCQ" target="_blank" rel="noopener noreferrer">Ver en YouTube</a>
@@ -797,7 +674,9 @@
             <img class="music-thumb" src="https://img.youtube.com/vi/NDnm6niNg_c/hqdefault.jpg" alt="Portada de Lluvia de Estrellas" />
             <span class="music-badge">💫 release</span>
             <h3>Lluvia de Estrellas</h3>
-            <p>Suma variedad visual y ayuda a que tu página no dependa solo de una canción principal.</p>
+            <p>
+              Una mirada más soñadora y sentimental, para esos momentos en que el recuerdo todavía brilla.
+            </p>
             <div class="music-actions">
               <button class="btn btn-secondary featured-play" type="button" data-video-id="NDnm6niNg_c" data-title="Lluvia de Estrellas">Reproducir aquí</button>
               <a class="btn btn-secondary" href="https://www.youtube.com/watch?v=NDnm6niNg_c" target="_blank" rel="noopener noreferrer">Ver en YouTube</a>
@@ -808,7 +687,9 @@
             <img class="music-thumb" src="https://img.youtube.com/vi/p_GLVYY3dno/hqdefault.jpg" alt="Portada de Ciudad Dinámica" />
             <span class="music-badge">🏙️ release</span>
             <h3>Ciudad Dinámica</h3>
-            <p>Le da más profundidad al catálogo y queda enlazada con el reproductor principal para escucharla dentro de tu web.</p>
+            <p>
+              Más movimiento, más ciudad, más pulso. Una canción con energía visual, pero con sentimiento intacto.
+            </p>
             <div class="music-actions">
               <button class="btn btn-secondary featured-play" type="button" data-video-id="p_GLVYY3dno" data-title="Ciudad Dinámica">Reproducir aquí</button>
               <a class="btn btn-secondary" href="https://www.youtube.com/watch?v=p_GLVYY3dno&list=PLalgSO3LX-NlqFkEEaF61jmV40dEHxRGT&index=18" target="_blank" rel="noopener noreferrer">Ver en YouTube</a>
@@ -819,7 +700,9 @@
             <img class="music-thumb" src="https://img.youtube.com/vi/A_kuniKhTT8/hqdefault.jpg" alt="Portada de Gótica" />
             <span class="music-badge">🖤 release</span>
             <h3>Gótica</h3>
-            <p>Sirve muy bien para que la web muestre más amplitud de lanzamientos sin perder el aire artístico.</p>
+            <p>
+              Una faceta más oscura y estética, sin dejar la sensibilidad melódica que define mi música.
+            </p>
             <div class="music-actions">
               <button class="btn btn-secondary featured-play" type="button" data-video-id="A_kuniKhTT8" data-title="Gótica">Reproducir aquí</button>
               <a class="btn btn-secondary" href="https://www.youtube.com/watch?v=A_kuniKhTT8" target="_blank" rel="noopener noreferrer">Ver en YouTube</a>
@@ -830,7 +713,9 @@
             <img class="music-thumb" src="https://img.youtube.com/vi/VKhk3AopNsk/hqdefault.jpg" alt="Portada de Dime Que Te Quedas" />
             <span class="music-badge">💚 release</span>
             <h3>Dime Que Te Quedas</h3>
-            <p>Una canción más para que la sección destacada tenga mejor presencia de catálogo y más opciones de escucha.</p>
+            <p>
+              Una canción directa, emotiva y cercana, con esa sensación de decir lo que uno siente sin rodeos.
+            </p>
             <div class="music-actions">
               <button class="btn btn-secondary featured-play" type="button" data-video-id="VKhk3AopNsk" data-title="Dime Que Te Quedas">Reproducir aquí</button>
               <a class="btn btn-secondary" href="https://www.youtube.com/watch?v=VKhk3AopNsk" target="_blank" rel="noopener noreferrer">Ver en YouTube</a>
@@ -844,13 +729,15 @@
       <div class="container">
         <div class="section-header">
           <div>
-            <h2>Playlist oficial</h2>
-            <p>Aquí puedes mostrar tus canciones directamente desde YouTube dentro de tu propia página.</p>
+            <h2>Playlist</h2>
+            <p>
+              Escucha una selección más amplia de mi catálogo desde la misma web. Puedes cambiar de canción desde la lista y seguir explorando el ambiente de cada lanzamiento.
+            </p>
           </div>
         </div>
 
         <div class="panel">
-          <h3 style="margin-bottom: 10px;">Escucha la playlist completa desde la web</h3>
+          <h3 style="margin-bottom: 10px;">Escucha la playlist desde aquí</h3>
           <p id="nowPlaying" class="muted" style="margin-bottom: 14px;">Ahora sonando: <strong>Noche Tranquila</strong></p>
           <div class="playlist-layout">
             <div>
@@ -866,17 +753,18 @@
               </div>
               <div style="margin-top: 14px; display: flex; gap: 12px; flex-wrap: wrap;">
                 <a class="btn btn-primary" href="https://youtube.com/playlist?list=PLalgSO3LX-NlqFkEEaF61jmV40dEHxRGT&si=betlz9NJVBILpnGT" target="_blank" rel="noopener noreferrer">Abrir playlist completa</a>
+                <a class="btn btn-secondary" href="https://open.spotify.com/user/im0hb56341foca5u6hd415g5p?si=b6dbaaa70bf54af5" target="_blank" rel="noopener noreferrer">Ir a Spotify</a>
               </div>
             </div>
 
             <aside class="playlist-list">
-              <h4>Selección visible de tu playlist</h4>
+              <h4>Selección ampliada de la playlist</h4>
 
               <button class="track-item active" type="button" data-video-id="P6PSARJ_BjI" data-title="Noche Tranquila" data-index="0">
                 <img class="track-thumb" src="https://img.youtube.com/vi/P6PSARJ_BjI/hqdefault.jpg" alt="Portada de Noche Tranquila" />
                 <div class="track-meta">
                   <strong>Noche Tranquila</strong>
-                  <span>Romántica, nocturna y nostálgica.</span>
+                  <span>Balada nocturna, íntima y nostálgica.</span>
                 </div>
               </button>
 
@@ -884,7 +772,7 @@
                 <img class="track-thumb" src="https://img.youtube.com/vi/g3LMEz9kkCQ/hqdefault.jpg" alt="Portada de Estar Bien" />
                 <div class="track-meta">
                   <strong>Estar Bien</strong>
-                  <span>Single reciente dentro de tu catálogo.</span>
+                  <span>Más luminosa, pero igual de honesta.</span>
                 </div>
               </button>
 
@@ -892,7 +780,7 @@
                 <img class="track-thumb" src="https://img.youtube.com/vi/NDnm6niNg_c/hqdefault.jpg" alt="Portada de Lluvia de Estrellas" />
                 <div class="track-meta">
                   <strong>Lluvia de Estrellas</strong>
-                  <span>Más variedad visual para la sección.</span>
+                  <span>Soñadora, romántica y sentimental.</span>
                 </div>
               </button>
 
@@ -900,7 +788,7 @@
                 <img class="track-thumb" src="https://img.youtube.com/vi/p_GLVYY3dno/hqdefault.jpg" alt="Portada de Ciudad Dinámica" />
                 <div class="track-meta">
                   <strong>Ciudad Dinámica</strong>
-                  <span>Lanzamiento con presencia propia en la lista.</span>
+                  <span>Más ritmo, más ciudad, misma emoción.</span>
                 </div>
               </button>
 
@@ -908,7 +796,7 @@
                 <img class="track-thumb" src="https://img.youtube.com/vi/A_kuniKhTT8/hqdefault.jpg" alt="Portada de Gótica" />
                 <div class="track-meta">
                   <strong>Gótica</strong>
-                  <span>Más catálogo visible junto al reproductor.</span>
+                  <span>Oscura en estética, sensible en el fondo.</span>
                 </div>
               </button>
 
@@ -916,7 +804,15 @@
                 <img class="track-thumb" src="https://img.youtube.com/vi/VKhk3AopNsk/hqdefault.jpg" alt="Portada de Dime Que Te Quedas" />
                 <div class="track-meta">
                   <strong>Dime Que Te Quedas</strong>
-                  <span>Más opciones para descubrir tu música.</span>
+                  <span>Directa, cercana y emocional.</span>
+                </div>
+              </button>
+
+              <button class="track-item" type="button" data-video-id="NCbOeBV_PEI" data-title="El hombre andante" data-index="6">
+                <img class="track-thumb" src="https://img.youtube.com/vi/NCbOeBV_PEI/hqdefault.jpg" alt="Portada de El hombre andante" />
+                <div class="track-meta">
+                  <strong>El hombre andante</strong>
+                  <span>Una historia con movimiento y melancolía.</span>
                 </div>
               </button>
             </aside>
@@ -929,26 +825,28 @@
       <div class="container">
         <div class="section-header">
           <div>
-            <h2>Plataformas y enlaces</h2>
-            <p>Reemplaza estos enlaces por tus perfiles reales en Spotify, Instagram, TikTok o cualquier plataforma que uses.</p>
+            <h2>Plataformas</h2>
+            <p>
+              Encuentra mi música, mis visuales y mis lanzamientos en los espacios donde comparto este proyecto.
+            </p>
           </div>
         </div>
 
         <div class="links-grid">
-          <a class="link-card" href="https://youtube.com/@anibalbuild" target="_blank" rel="noopener noreferrer">
+          <a class="link-card" href="https://open.spotify.com/user/im0hb56341foca5u6hd415g5p?si=b6dbaaa70bf54af5" target="_blank" rel="noopener noreferrer">
             <div>
-              <div class="pill">YouTube</div>
-              <h3 style="margin-top: 14px;">Canal oficial</h3>
-              <p>Videos, canciones, estrenos y contenido artístico.</p>
+              <div class="pill">Spotify</div>
+              <h3 style="margin-top: 14px;">Escuchar catálogo</h3>
+              <p>La plataforma principal para escuchar mi música y seguir mi crecimiento como artista.</p>
             </div>
             <div class="arrow">→</div>
           </a>
 
-          <a class="link-card" href="https://open.spotify.com/user/im0hb56341foca5u6hd415g5p?si=b6dbaaa70bf54af5" target="_blank" rel="noopener noreferrer">
+          <a class="link-card" href="https://youtube.com/@anibalbuild" target="_blank" rel="noopener noreferrer">
             <div>
-              <div class="pill">Spotify</div>
-              <h3 style="margin-top: 14px;">Perfil oficial</h3>
-              <p>Escucha tu catálogo y fortalece tu presencia como artista en Spotify.</p>
+              <div class="pill">YouTube</div>
+              <h3 style="margin-top: 14px;">Canal oficial</h3>
+              <p>Videos, canciones, visuales y estrenos dentro del universo de anibalbuild.</p>
             </div>
             <div class="arrow">→</div>
           </a>
@@ -957,7 +855,7 @@
             <div>
               <div class="pill">Instagram</div>
               <h3 style="margin-top: 14px;">Visuales y novedades</h3>
-              <p>Portadas, reels, avances y presencia visual directa de anibalbuild.</p>
+              <p>Portadas, avances, estética del proyecto y presencia visual más cercana.</p>
             </div>
             <div class="arrow">→</div>
           </a>
@@ -966,7 +864,7 @@
             <div>
               <div class="pill">Lanzamientos</div>
               <h3 style="margin-top: 14px;">Página de releases</h3>
-              <p>Acceso directo a la sección de lanzamientos publicados en tu canal.</p>
+              <p>Acceso directo a los lanzamientos publicados y organizados desde el canal.</p>
             </div>
             <div class="arrow">→</div>
           </a>
@@ -979,45 +877,48 @@
         <div class="section-header">
           <div>
             <h2>Sobre mí</h2>
-            <p>Una sección de presentación para que tu web tenga una identidad más profesional y humana.</p>
+            <p>
+              Este proyecto nace desde una necesidad simple: convertir emociones reales en canciones que acompañen de verdad.
+            </p>
           </div>
         </div>
 
         <div class="about-grid">
           <article class="about-card">
-            <h3>Quién es anibalbuild</h3>
+            <h3>Quién soy</h3>
             <p>
-              anibalbuild es un proyecto musical centrado en la emoción, la nostalgia y la sensibilidad romántica.
-              La propuesta artística mezcla balada pop, melodías íntimas y una atmósfera nocturna que busca conectar con quienes sienten la música desde lo más personal.
+              Soy anibalbuild, un artista musical enfocado en canciones románticas, melódicas y nocturnas. Me interesa escribir desde lo íntimo: el recuerdo, la ternura, la nostalgia, la esperanza y esa emoción que sigue viva aunque el tiempo pase. Mi intención no es solo sonar bien, sino hacer canciones que se sientan cercanas, honestas y humanas.
             </p>
           </article>
 
           <article class="about-card">
-            <h3>Identidad artística</h3>
+            <h3>Qué busco con mi música</h3>
             <ul>
-              <li>Balada pop romántica y melódica</li>
-              <li>Ambientes nocturnos y nostálgicos</li>
-              <li>Estética cinematográfica y sentimental</li>
-              <li>Canciones con cercanía emocional y honestidad</li>
+              <li>Crear baladas con identidad emocional clara</li>
+              <li>Combinar melodía, romanticismo y atmósfera nocturna</li>
+              <li>Dar espacio a letras y sentimientos que todavía pesan</li>
+              <li>Construir un proyecto artístico coherente en sonido y visual</li>
             </ul>
           </article>
         </div>
 
         <article class="contact-card" id="contacto">
           <div>
-            <h3>Contacto y colaboración</h3>
+            <h3>Contacto y redes</h3>
             <p>
-              Puedes usar esta sección para recibir propuestas, colaboraciones, oportunidades de prensa o mensajes de seguidores.
+              Para colaboraciones, propuestas, consultas o simplemente para seguir el proyecto más de cerca, aquí están mis canales principales.
             </p>
             <div class="contact-list">
               <a class="contact-pill" href="mailto:lavidaeslucida@gmail.com">lavidaeslucida@gmail.com</a>
-              <a class="contact-pill" href="https://youtube.com/@anibalbuild" target="_blank" rel="noopener noreferrer">@anibalbuild</a>
+              <a class="contact-pill" href="https://www.instagram.com/anibalbuild/" target="_blank" rel="noopener noreferrer">Instagram</a>
+              <a class="contact-pill" href="https://open.spotify.com/user/im0hb56341foca5u6hd415g5p?si=b6dbaaa70bf54af5" target="_blank" rel="noopener noreferrer">Spotify</a>
+              <a class="contact-pill" href="https://youtube.com/@anibalbuild" target="_blank" rel="noopener noreferrer">YouTube</a>
             </div>
           </div>
 
           <div class="contact-actions">
             <a class="btn btn-primary" href="mailto:lavidaeslucida@gmail.com">Escríbeme</a>
-            <a class="btn btn-secondary" href="#inicio">Volver arriba</a>
+            <a class="btn btn-secondary" href="https://www.instagram.com/anibalbuild/" target="_blank" rel="noopener noreferrer">Seguir en Instagram</a>
           </div>
         </article>
       </div>
