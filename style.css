@@ -1,0 +1,261 @@
+
+:root{
+--bg:#05070d;
+--bg2:#0c1322;
+--card:rgba(255,255,255,.06);
+--line:rgba(255,255,255,.08);
+--text:#f5f7fb;
+--muted:#aab7c9;
+--spotify:#1ED760;
+--spotify2:#1DB954;
+--radius:24px;
+--shadow:0 20px 60px rgba(0,0,0,.45);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+font-family:Inter,Segoe UI,Arial,sans-serif;
+background:
+radial-gradient(circle at top left,rgba(30,215,96,.15),transparent 30%),
+radial-gradient(circle at top right,rgba(30,215,96,.08),transparent 25%),
+linear-gradient(180deg,#02040a,#09111e 60%,#04060b);
+color:var(--text);
+overflow-x:hidden;
+}
+
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+
+.hero{
+position:relative;
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+background:
+linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.7)),
+url("hero.jpg") center center/cover no-repeat;
+}
+
+.hero::after{
+content:"";
+position:absolute;
+inset:0;
+background:
+radial-gradient(circle at center,transparent 45%,rgba(0,0,0,.55));
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+text-align:center;
+padding:30px;
+}
+
+.hero h1{
+font-size:clamp(3rem,8vw,6rem);
+letter-spacing:-3px;
+margin-bottom:15px;
+}
+
+.hero p{
+font-size:1.2rem;
+color:var(--muted);
+margin-bottom:30px;
+}
+
+.nav{
+position:fixed;
+top:0;
+left:0;
+right:0;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 60px;
+backdrop-filter:blur(18px);
+background:rgba(0,0,0,.18);
+z-index:1000;
+}
+
+.nav ul{
+display:flex;
+list-style:none;
+gap:30px;
+}
+
+.nav a:hover{color:var(--spotify)}
+
+.logo{
+font-size:1.4rem;
+font-weight:700;
+}
+
+.section{
+max-width:1200px;
+margin:auto;
+padding:90px 25px;
+}
+
+.section h2{
+font-size:2.3rem;
+margin-bottom:30px;
+}
+
+.release-card{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+align-items:center;
+background:var(--card);
+border:1px solid var(--line);
+padding:30px;
+border-radius:var(--radius);
+box-shadow:var(--shadow);
+backdrop-filter:blur(18px);
+}
+
+.release-card img{
+border-radius:20px;
+transition:.4s;
+}
+
+.release-card img:hover{
+transform:scale(1.03);
+}
+
+.btn{
+display:inline-block;
+padding:14px 28px;
+border-radius:999px;
+font-weight:700;
+transition:.3s;
+margin:8px 8px 0 0;
+}
+
+.spotify{
+background:linear-gradient(135deg,var(--spotify),var(--spotify2));
+color:white;
+box-shadow:0 10px 35px rgba(29,185,84,.35);
+}
+
+.spotify:hover{
+transform:translateY(-3px) scale(1.03);
+}
+
+.youtube{
+background:#222;
+border:1px solid var(--line);
+}
+
+iframe{
+width:100%;
+border:none;
+border-radius:22px;
+box-shadow:var(--shadow);
+background:#121212;
+}
+
+#featuredSongs{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:24px;
+}
+
+.song{
+background:var(--card);
+border:1px solid var(--line);
+border-radius:22px;
+overflow:hidden;
+transition:.35s;
+backdrop-filter:blur(16px);
+}
+
+.song:hover{
+transform:translateY(-8px);
+box-shadow:0 20px 45px rgba(29,185,84,.18);
+border-color:rgba(30,215,96,.35);
+}
+
+.song img{
+aspect-ratio:16/9;
+object-fit:cover;
+}
+
+.song-content{
+padding:22px;
+}
+
+footer{
+padding:40px;
+text-align:center;
+color:var(--muted);
+border-top:1px solid var(--line);
+margin-top:80px;
+}
+
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-thumb{
+background:var(--spotify);
+border-radius:10px;
+}
+::-webkit-scrollbar-track{
+background:#071018;
+}
+
+@media(max-width:900px){
+
+.nav{
+padding:18px;
+flex-direction:column;
+gap:15px;
+}
+
+.nav ul{
+flex-wrap:wrap;
+justify-content:center;
+gap:15px;
+}
+
+.release-card{
+grid-template-columns:1fr;
+}
+
+.hero h1{
+font-size:3.2rem;
+}
+
+.section{
+padding:70px 18px;
+}
+
+iframe{
+height:420px!important;
+}
+
+}
+
+@media(max-width:600px){
+
+.hero{
+height:85vh;
+}
+
+.hero p{
+font-size:1rem;
+}
+
+.section h2{
+font-size:1.8rem;
+}
+
+.btn{
+display:block;
+text-align:center;
+margin-top:10px;
+}
+
+}
