@@ -15,9 +15,9 @@
       --text: #f8fafc;
       --muted: #94a3b8;
       --line: rgba(255,255,255,0.10);
-      --accent: #1ed760;
-      --accent-2: #1db954;
-      --accent-3: #34d399;
+      --accent: #ff2a2a;
+      --accent-2: #dc2626;
+      --accent-3: #fca5a5;
       --shadow: 0 20px 60px rgba(0,0,0,0.42);
       --radius: 24px;
       --max: 1180px;
@@ -31,8 +31,8 @@
       font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at top left, rgba(30,215,96,0.10), transparent 24%),
-        radial-gradient(circle at top right, rgba(52,211,153,0.07), transparent 20%),
+        radial-gradient(circle at top left, rgba(255,42,42,0.12), transparent 28%),
+        radial-gradient(circle at top right, rgba(220,38,38,0.08), transparent 22%),
         linear-gradient(180deg, #02050d 0%, #050b16 38%, #08111f 100%);
       min-height: 100vh;
     }
@@ -111,8 +111,8 @@
     .btn:hover { transform: translateY(-1px); }
 
     .btn-primary {
-      background: linear-gradient(135deg, #ff0000, #cc0000);
-      box-shadow: 0 12px 30px rgba(255, 0, 0, 0.34);
+      background: linear-gradient(135deg, #ff2a2a, #dc2626);
+      box-shadow: 0 12px 30px rgba(239, 68, 68, 0.34);
       color: #ffffff;
     }
 
@@ -159,7 +159,7 @@
       inset: auto -80px -80px auto;
       width: 230px;
       height: 230px;
-      background: radial-gradient(circle, rgba(30,215,96,0.16), transparent 70%);
+      background: radial-gradient(circle, rgba(255,42,42,0.18), transparent 70%);
       pointer-events: none;
     }
 
@@ -169,9 +169,9 @@
       gap: 10px;
       padding: 8px 12px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(30,215,96,0.20);
-      color: #bbf7d0;
+      background: rgba(255,42,42,0.10);
+      border: 1px solid rgba(255,42,42,0.25);
+      color: #fca5a5;
       font-size: 0.85rem;
       margin-bottom: 18px;
     }
@@ -343,8 +343,8 @@
       width: fit-content;
       padding: 8px 12px;
       border-radius: 999px;
-      background: rgba(255,0,0,0.10);
-      border: 1px solid rgba(255,0,0,0.25);
+      background: rgba(255,42,42,0.10);
+      border: 1px solid rgba(255,42,42,0.25);
       color: #fca5a5;
       font-size: 0.82rem;
     }
@@ -385,19 +385,64 @@
 
     .youtube-panel {
       background:
-        radial-gradient(circle at top left, rgba(255,0,0,0.10), transparent 28%),
+        radial-gradient(circle at top left, rgba(255,42,42,0.10), transparent 28%),
         linear-gradient(180deg, rgba(7,12,22,0.98), rgba(10,18,32,0.96));
-      border: 1px solid rgba(255,0,0,0.20);
+      border: 1px solid rgba(255,42,42,0.20);
       box-shadow: 0 24px 70px rgba(0,0,0,0.42);
     }
 
-    .youtube-panel .embed-wrap {
-      border: 1px solid rgba(255,0,0,0.20);
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)),
-        rgba(3,7,18,0.78);
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02), 0 18px 45px rgba(0,0,0,0.30);
-      padding: 10px;
+    .playlist-container {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 20px;
+    }
+
+    .playlist-list {
+      max-height: 480px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding-right: 6px;
+    }
+
+    .playlist-list::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .playlist-list::-webkit-scrollbar-thumb {
+      background: rgba(255,255,255,0.2);
+      border-radius: 4px;
+    }
+
+    .playlist-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .playlist-item:hover,
+    .playlist-item.active {
+      background: rgba(255,42,42,0.15);
+      border-color: rgba(255,42,42,0.4);
+    }
+
+    .playlist-item img {
+      width: 54px;
+      aspect-ratio: 16/9;
+      border-radius: 6px;
+      object-fit: cover;
+    }
+
+    .playlist-item span {
+      font-size: 0.92rem;
+      font-weight: 600;
     }
 
     .youtube-note {
@@ -482,7 +527,8 @@
       .about-grid,
       .contact-card,
       .music-grid,
-      .links-grid {
+      .links-grid,
+      .playlist-container {
         grid-template-columns: 1fr;
       }
 
@@ -790,26 +836,32 @@
           <div>
             <h2>Playlist</h2>
             <p>
-              Aquí puedes reproducir todas mis canciones en secuencia directamente desde mi canal de YouTube.
+              Elige cualquier canción de la lista para reproducirla inmediatamente.
             </p>
           </div>
         </div>
 
         <div class="panel youtube-panel">
-          <h3 style="margin-bottom: 10px;">Escucha todas mis canciones en YouTube</h3>
+          <h3 style="margin-bottom: 10px;">Escucha mis canciones</h3>
           <p class="youtube-note" style="margin-bottom: 14px;">
-            Haz clic en reproducir para escuchar todo mi repertorio actualizado en un solo lugar.
+            Haz clic en cualquiera de los temas de la lista para cargarlo en el reproductor.
           </p>
-          <div class="embed-wrap">
-            <iframe
-              height="480"
-              src="https://www.youtube.com/embed/videoseries?playlist=Nm3PUA6A9Jw,5eI4-TZNPms,ic24l3Qr2hQ,dMOoHw_J89Y,lBzdNScYDEU,GRWJAP-vD8A,dLLAAz0laKc,xOKew8yXDHY,SQlqw-b59j4,8CMJj_5fJqM,SKfTuzd05_s,ySdkqubrLcI,2vkNAv36Lzg,qUjwMxKj47g,EwWWd1zmjpk,kqPsp3sApEU"
-              title="Playlist Oficial de YouTube - anibalbuild"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen>
-            </iframe>
+          <div class="playlist-container">
+            <div class="embed-wrap">
+              <iframe
+                id="main-player"
+                height="480"
+                src="https://www.youtube.com/embed/Nm3PUA6A9Jw?autoplay=0"
+                title="Reproductor de YouTube - anibalbuild"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
+            </div>
+            <div class="playlist-list" id="playlist-items">
+              <!-- La lista interactiva se genera automáticamente desde JS -->
+            </div>
           </div>
-          <div style="margin-top: 14px; display: flex; gap: 12px; flex-wrap: wrap;">
+          <div style="margin-top: 18px; display: flex; gap: 12px; flex-wrap: wrap;">
             <a class="btn btn-primary" href="https://www.youtube.com/@anibal_vargas" target="_blank" rel="noopener noreferrer">Ir al canal de YouTube</a>
           </div>
         </div>
@@ -937,6 +989,43 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    const songs = [
+      { id: 'Nm3PUA6A9Jw', title: 'Lanzamiento 1' },
+      { id: '5eI4-TZNPms', title: 'Lanzamiento 2' },
+      { id: 'ic24l3Qr2hQ', title: 'Lanzamiento 3' },
+      { id: 'dMOoHw_J89Y', title: 'Lanzamiento 4' },
+      { id: 'lBzdNScYDEU', title: 'Lanzamiento 5' },
+      { id: 'GRWJAP-vD8A', title: 'Lanzamiento 6' },
+      { id: 'dLLAAz0laKc', title: 'Lanzamiento 7' },
+      { id: 'xOKew8yXDHY', title: 'Lanzamiento 8' },
+      { id: 'SQlqw-b59j4', title: 'Lanzamiento 9' },
+      { id: '8CMJj_5fJqM', title: 'Lanzamiento 10' },
+      { id: 'SKfTuzd05_s', title: 'Lanzamiento 11' },
+      { id: 'ySdkqubrLcI', title: 'Lanzamiento 12' },
+      { id: '2vkNAv36Lzg', title: 'Lanzamiento 13' },
+      { id: 'qUjwMxKj47g', title: 'Lanzamiento 14' },
+      { id: 'EwWWd1zmjpk', title: 'Lanzamiento 15' },
+      { id: 'kqPsp3sApEU', title: 'Lanzamiento 16' }
+    ];
+
+    const playlistContainer = document.getElementById('playlist-items');
+    const mainPlayer = document.getElementById('main-player');
+
+    songs.forEach((song, index) => {
+      const item = document.createElement('div');
+      item.className = `playlist-item ${index === 0 ? 'active' : ''}`;
+      item.innerHTML = `
+        <img src="https://img.youtube.com/vi/${song.id}/hqdefault.jpg" alt="${song.title}">
+        <span>${song.title}</span>
+      `;
+      item.addEventListener('click', () => {
+        document.querySelectorAll('.playlist-item').forEach(el => el.classList.remove('active'));
+        item.classList.add('active');
+        mainPlayer.src = `https://www.youtube.com/embed/${song.id}?autoplay=1`;
+      });
+      playlistContainer.appendChild(item);
+    });
   </script>
 </body>
 </html>
